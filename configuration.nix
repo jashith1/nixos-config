@@ -39,34 +39,20 @@
     NIXOS_OZONE_WL = "1"; #wayland apps use ozone
   };
   environment.systemPackages = with pkgs; [
-    vim
-    kitty
-    git
-    firefox
-    neovim
-    kanshi
-    pavucontrol
-    mullvad-vpn
-    grimblast
-    slurp
-    wl-clipboard
-    texliveFull
-    libgccjit
-    brightnessctl
-    fastfetch
-    waybar
-    python314
-    uv
-    gcc
-    gnumake
-    gdb
-    unzip
-    gtk3
-    gtk4
-    glib
-    mesa
-    xwayland
-    fastfetch
+    #must have for any system
+    vim kitty git firefox neovim
+
+    #nice to have utilities
+    kanshi pavucontrol mullvad-vpn fastfetch brightnessctl fastfetch waybar unzip
+
+    #programming sht
+    python314 texliveFull uv gcc gnumake libgccjit gdb
+    
+    #rendering libraries and graphics stuff
+    gtk3 gtk4 glib mesa xwayland
+
+    #input stuff (copy, screenshot)
+    grimblast slurp wl-clipboard
   ];
 
   #services
