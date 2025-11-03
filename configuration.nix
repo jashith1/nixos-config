@@ -26,7 +26,7 @@
   users.users.bloppai = {
     isNormalUser = true;
     description = "bloppai";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "docker" ];
     packages = with pkgs; [];
   };
 
