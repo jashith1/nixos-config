@@ -12,7 +12,7 @@
   #networking and time
   networking.networkmanager.enable = true;
   networking.hostName = "bloppai"; # Define your hostname.
-  
+ 
   time.timeZone = "America/Chicago";
 
   #language and locale settings
@@ -33,40 +33,73 @@
   #nix settings
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  #hardware settings 
+  security.rtkit.enable = true; #for improved audio performance
+  hardware = {
+    bluetooth.enable = true;
+    pulseaudio.enable = false; #using pipewire instead
+  };
  
   #environment
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; #wayland apps use ozone
   };
   environment.systemPackages = with pkgs; [
-    #must have for any system
-    vim kitty git firefox neovim
+    #must have
+    vim kitty git firefox neovim curl wget
 
-    #nice to have utilities
-    kanshi pavucontrol mullvad-vpn fastfetch brightnessctl fastfetch waybar unzip
+    #utilities
+    kanshi pavucontrol mullvad-vpn fastfetch brightnessctl fastfetch waybar unzip swaynotificationcenter
 
     #programming sht
-    python314 texliveFull uv gcc gnumake libgccjit gdb
+    python3 texliveFull uv gcc gnumake libgccjit gdb cmake nodejs
     
     #rendering libraries and graphics stuff
     gtk3 gtk4 glib mesa xwayland
 
     #input stuff (copy, screenshot)
     grimblast slurp wl-clipboard
+
+    #neovim plugins, LSP, etc
+    tree-sitter ripgrep fd prettier stylua black shfmt python3Packages.pip lua-language-server pyright typescript-language-server yaml-language-server 
+
+    #yucky apps 
+    zoom-us
   ];
 
   #services
   services = {
-    mullvad-vpn.enable = true;
-    supergfxd.enable = true;
-    asusd = {
+    mullvad-vpn = {
       enable = true;
-      enableUserService = true;
+      package = pkgs.mullvad-vpn;
     };
+
+    blueman.enable = true;
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      wireplumber.enable = true;
+    };
+
+    #supergfxd.enable = true;
+    #asusd = {
+    #  enable = true;
+    #  enableUserService = true;
+    #};
 
     xserver.xkb.layout = "us"; #x11 fallback
   };
 
   #programs
   programs.hyprland.enable = true;
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+  };
 }
