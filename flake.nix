@@ -12,7 +12,7 @@
       modules = [
         ./configuration.nix
         ./hardware-configuration.nix
-	nixos-hardware.nixosModules.asus-zephyrus-ga402
+        nixos-hardware.nixosModules.asus-zephyrus-ga402
       ];
     };
   };
