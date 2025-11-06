@@ -38,7 +38,6 @@
   security.rtkit.enable = true; #for improved audio performance
   hardware = {
     bluetooth.enable = true;
-    pulseaudio.enable = false; #using pipewire instead
   };
  
   #environment
@@ -77,6 +76,7 @@
 
     blueman.enable = true;
 
+    pulseaudio.enable = false; #using pipewire instead
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -107,7 +107,7 @@
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     liberation_ttf
     fira-code
     fira-code-symbols
