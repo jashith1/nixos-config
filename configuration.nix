@@ -50,10 +50,10 @@
     vim kitty git firefox neovim curl wget
 
     #utilities
-    kanshi pavucontrol mullvad-vpn fastfetch brightnessctl fastfetch waybar unzip swaynotificationcenter
+    kanshi pavucontrol mullvad-vpn fastfetch brightnessctl fastfetch waybar unzip swaynotificationcenter playerctl
 
     #programming sht
-    python3 texliveFull uv gcc gnumake libgccjit gdb cmake nodejs
+    python3 texliveFull uv gcc gnumake libgccjit gdb cmake nodejs python312 python312Packages.virtualenv
     
     #rendering libraries and graphics stuff
     gtk3 gtk4 glib mesa xwayland
@@ -85,11 +85,11 @@
       wireplumber.enable = true;
     };
 
-    #supergfxd.enable = true;
-    #asusd = {
-    #  enable = true;
-    #  enableUserService = true;
-    #};
+    supergfxd.enable = true;
+    asusd = {
+      enable = true;
+      enableUserService = true;
+    };
 
     xserver.xkb.layout = "us"; #x11 fallback
   };
