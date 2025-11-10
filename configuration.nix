@@ -43,13 +43,16 @@
   #environment
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; #wayland apps use ozone
+    grim="grimblast";
+    wl="wl-copy";
+    cmpl="g++ -std=c++17 -Wall -Wextra -pedantic-errors -Weffc++ -Wno-unused-parameter -fsanitize=undefined,address *.cpp"; #for CSCE120 cpp compiler options
   };
   environment.systemPackages = with pkgs; [
     #must have
     vim kitty git firefox neovim curl wget
 
     #utilities
-    kanshi pavucontrol mullvad-vpn fastfetch brightnessctl fastfetch waybar unzip swaynotificationcenter playerctl
+    kanshi pavucontrol mullvad-vpn fastfetch brightnessctl fastfetch waybar unzip swaynotificationcenter playerctl unrar ntfs3g btop
 
     #programming sht
     python3 texliveFull uv gcc gnumake libgccjit gdb cmake nodejs python312 python312Packages.virtualenv
@@ -96,6 +99,7 @@
 
   #programs
   programs.hyprland.enable = true;
+  programs.hyprlock.enable = true;
   programs.neovim = {
     enable = true;
     defaultEditor = true;
