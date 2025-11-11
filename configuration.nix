@@ -49,7 +49,7 @@
   };
   environment.systemPackages = with pkgs; [
     #must have
-    vim kitty git firefox neovim curl wget
+    vim kitty git neovim curl wget
 
     #utilities
     kanshi pavucontrol mullvad-vpn fastfetch brightnessctl fastfetch waybar unzip swaynotificationcenter playerctl unrar ntfs3g btop
@@ -106,6 +106,7 @@
     viAlias = true;
     vimAlias = true;
   };
+  programs.firefox.enable = true;
   
   #fonts
   fonts.packages = with pkgs; [
