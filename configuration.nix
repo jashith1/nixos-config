@@ -52,7 +52,7 @@
     vim kitty git neovim curl wget
 
     #utilities
-    kanshi pavucontrol mullvad-vpn fastfetch brightnessctl fastfetch waybar unzip swaynotificationcenter playerctl unrar ntfs3g btop
+    kanshi pavucontrol mullvad-vpn fastfetch brightnessctl fastfetch waybar unzip swaynotificationcenter playerctl unrar ntfs3g btop qbittorrent
 
     #programming sht
     python3 texliveFull uv gcc gnumake libgccjit gdb cmake nodejs python312 python312Packages.virtualenv
