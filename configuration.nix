@@ -52,7 +52,7 @@
     vim curl wget
 
     #utilities
-    kitty kanshi pavucontrol mullvad-vpn fastfetch brightnessctl unzip swaynotificationcenter playerctl unrar ntfs3g btop qbittorrent
+    kitty kanshi pavucontrol mullvad-vpn fastfetch brightnessctl unzip swaynotificationcenter playerctl unrar ntfs3g btop qbittorrent hyprpaper
 
     #programming sht
     python3 texliveFull uv gcc gnumake libgccjit gdb cmake nodejs python312 python312Packages.virtualenv
