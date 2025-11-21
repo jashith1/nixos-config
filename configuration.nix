@@ -49,10 +49,10 @@
   };
   environment.systemPackages = with pkgs; [
     #must have
-    vim kitty git neovim curl wget
+    vim curl wget
 
     #utilities
-    kanshi pavucontrol mullvad-vpn fastfetch brightnessctl fastfetch waybar unzip swaynotificationcenter playerctl unrar ntfs3g btop qbittorrent
+    kitty kanshi pavucontrol mullvad-vpn fastfetch brightnessctl unzip swaynotificationcenter playerctl unrar ntfs3g btop qbittorrent
 
     #programming sht
     python3 texliveFull uv gcc gnumake libgccjit gdb cmake nodejs python312 python312Packages.virtualenv
@@ -98,15 +98,19 @@
   };
 
   #programs
-  programs.hyprland.enable = true;
-  programs.hyprlock.enable = true;
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
+  programs = {
+    hyprland.enable = true;
+    hyprlock.enable = true;
+    firefox.enable = true;
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+    };
+    git.enable = true;
+    waybar.enable = true;
   };
-  programs.firefox.enable = true;
   
   #fonts
   fonts.packages = with pkgs; [
