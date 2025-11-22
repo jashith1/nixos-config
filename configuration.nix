@@ -111,6 +111,9 @@
     git.enable = true;
     waybar.enable = true;
   };
+
+  #virtualisation
+  virtualisation.docker.enable = true;
   
   #fonts
   fonts.packages = with pkgs; [
