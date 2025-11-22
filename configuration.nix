@@ -12,6 +12,12 @@
   #networking and time
   networking.networkmanager.enable = true;
   networking.hostName = "bloppai"; # Define your hostname.
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 8096 8920 ];
+    allowedUDPPorts = [ 1900 7359 ];
+  };
+
  
   time.timeZone = "America/Chicago";
 
