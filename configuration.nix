@@ -70,7 +70,7 @@
     grimblast slurp wl-clipboard
 
     #nice apps 
-    kitty mullvad-vpn qbittorrent
+    kitty mullvad-vpn qbittorrent vlc
 
     #neovim plugins, LSP, etc
     tree-sitter ripgrep fd prettier stylua black shfmt python3Packages.pip lua-language-server pyright typescript-language-server yaml-language-server 
