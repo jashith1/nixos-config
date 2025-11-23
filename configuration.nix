@@ -58,7 +58,7 @@
     vim curl wget
 
     #utilities
-    kitty kanshi pavucontrol mullvad-vpn fastfetch brightnessctl unzip swaynotificationcenter playerctl unrar ntfs3g btop qbittorrent hyprpaper
+    kanshi pavucontrol fastfetch brightnessctl unzip swaynotificationcenter playerctl unrar ntfs3g btop hyprpaper
 
     #programming sht
     python3 texliveFull uv gcc gnumake libgccjit gdb cmake nodejs python312 python312Packages.virtualenv
@@ -68,6 +68,9 @@
 
     #input stuff (copy, screenshot)
     grimblast slurp wl-clipboard
+
+    #nice apps 
+    kitty mullvad-vpn qbittorrent
 
     #neovim plugins, LSP, etc
     tree-sitter ripgrep fd prettier stylua black shfmt python3Packages.pip lua-language-server pyright typescript-language-server yaml-language-server 
