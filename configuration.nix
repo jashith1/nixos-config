@@ -51,6 +51,7 @@
     NIXOS_OZONE_WL = "1"; #wayland apps use ozone
     grim="grimblast";
     wl="wl-copy";
+    MOZ_ENABLE_WAYLAND = 1;
     cmpl="g++ -std=c++17 -Wall -Wextra -pedantic-errors -Weffc++ -Wno-unused-parameter -fsanitize=undefined,address *.cpp"; #for CSCE120 cpp compiler options
   };
   environment.systemPackages = with pkgs; [
