@@ -51,7 +51,7 @@
     NIXOS_OZONE_WL = "1"; #wayland apps use ozone
     grim="grimblast";
     wl="wl-copy";
-    MOZ_ENABLE_WAYLAND = 1;
+    MOZ_ENABLE_WAYLAND = 0;
     cmpl="g++ -std=c++17 -Wall -Wextra -pedantic-errors -Weffc++ -Wno-unused-parameter -fsanitize=undefined,address *.cpp"; #for CSCE120 cpp compiler options
   };
   environment.systemPackages = with pkgs; [
@@ -71,7 +71,7 @@
     grimblast slurp wl-clipboard
 
     #nice apps 
-    kitty mullvad-vpn qbittorrent vlc
+    kitty mullvad-vpn qbittorrent vlc tor-browser
 
     #neovim plugins, LSP, etc
     tree-sitter ripgrep fd prettier stylua black shfmt python3Packages.pip lua-language-server pyright typescript-language-server yaml-language-server 
