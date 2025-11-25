@@ -112,6 +112,7 @@
     hyprland.enable = true;
     hyprlock.enable = true;
     firefox.enable = true;
+    chromium.enable = true;
     neovim = {
       enable = true;
       defaultEditor = true;
