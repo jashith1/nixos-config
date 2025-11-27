@@ -59,7 +59,7 @@
     vim curl wget
 
     #utilities
-    pavucontrol fastfetch brightnessctl unzip swaynotificationcenter playerctl unrar ntfs3g btop hyprpaper
+    pavucontrol fastfetch brightnessctl unzip swaynotificationcenter playerctl unrar ntfs3g btop hyprpaper nmap
 
     #programming sht
     python3 texliveFull uv gcc gnumake libgccjit gdb cmake nodejs python312 python312Packages.virtualenv
@@ -71,7 +71,7 @@
     grimblast slurp wl-clipboard
 
     #nice apps 
-    kitty mullvad-vpn qbittorrent vlc tor-browser chromium
+    kitty mullvad-vpn qbittorrent vlc tor-browser chromium nautilus
 
     #neovim plugins, LSP, etc
     tree-sitter ripgrep fd prettier stylua black shfmt python3Packages.pip lua-language-server pyright typescript-language-server yaml-language-server 
