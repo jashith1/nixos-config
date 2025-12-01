@@ -98,7 +98,12 @@
       wireplumber.enable = true;
     };
 
-    supergfxd.enable = true;
+    supergfxd = {
+      enable = true;
+      settings = {
+        mode = "Integrated";
+      };
+    };
     asusd = {
       enable = true;
       enableUserService = true;
