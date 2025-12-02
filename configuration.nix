@@ -141,19 +141,18 @@
   fonts = {
     enableDefaultPackages = true;
     fontconfig.enable = true;
-    packages = [
-      pkgs.nerd-fonts.jetbrains-mono
-      pkgs.nerd-fonts.symbols-only
-      pkgs.noto-fonts
-      pkgs.noto-fonts-cjk-sans
-      pkgs.noto-fonts-color-emoji
-      pkgs.liberation_ttf
-      pkgs.fira-code
-      pkgs.fira-code-symbols
-      pkgs.mplus-outline-fonts.githubRelease
-      pkgs.dina-font
-      pkgs.proggyfonts
+    packages = with pkgs; [
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.symbols-only
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-color-emoji
+      liberation_ttf
+      fira-code
+      fira-code-symbols
+      mplus-outline-fonts.githubRelease
+      dina-font
+      proggyfonts
     ];
-
   };
 }
