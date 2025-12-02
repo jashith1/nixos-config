@@ -4,7 +4,16 @@
   #boot stuff
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  #kernel parameters
+  boot.kernelParams = [
+    "amd_pstate=active"
+    "pcie_aspm.policy=powersave"
+    "amdgpu.ppfeaturemask=0xffff7fff"
+    "amdgpu.vm_stack_size=4"
+    "amdgpu.dcdebugmask=0x4"
+  ];
 
   #system versionn, do not change
   system.stateVersion = "25.05"; 
@@ -32,7 +41,7 @@
   users.users.bloppai = {
     isNormalUser = true;
     description = "bloppai";
-    extraGroups = [ "networkmanager" "wheel" "audio" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "docker" "video"];
     packages = with pkgs; [];
   };
 
@@ -65,7 +74,7 @@
     python3 texliveFull uv gcc gnumake libgccjit gdb cmake nodejs python312 python312Packages.virtualenv
     
     #rendering libraries and graphics stuff
-    gtk3 gtk4 glib mesa xwayland
+    gtk3 gtk4 glib xwayland
 
     #input stuff (copy, screenshot)
     grimblast slurp wl-clipboard
@@ -100,9 +109,6 @@
 
     supergfxd = {
       enable = true;
-      settings = {
-        mode = "Integrated";
-      };
     };
     asusd = {
       enable = true;
@@ -132,16 +138,22 @@
   virtualisation.docker.enable = true;
   
   #fonts
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-color-emoji
-    liberation_ttf
-    fira-code
-    fira-code-symbols
-    mplus-outline-fonts.githubRelease
-    dina-font
-    proggyfonts
-  ];
+  fonts = {
+    enableDefaultPackages = true;
+    fontconfig.enable = true;
+    packages = [
+      pkgs.nerd-fonts.jetbrains-mono
+      pkgs.nerd-fonts.symbols-only
+      pkgs.noto-fonts
+      pkgs.noto-fonts-cjk-sans
+      pkgs.noto-fonts-color-emoji
+      pkgs.liberation_ttf
+      pkgs.fira-code
+      pkgs.fira-code-symbols
+      pkgs.mplus-outline-fonts.githubRelease
+      pkgs.dina-font
+      pkgs.proggyfonts
+    ];
 
+  };
 }
