@@ -68,10 +68,10 @@
     vim curl wget
 
     #utilities
-    pavucontrol fastfetch brightnessctl unzip swaynotificationcenter playerctl unrar ntfs3g btop hyprpaper nmap openssl dig
+    pavucontrol fastfetch brightnessctl unzip swaynotificationcenter playerctl unrar ntfs3g btop hyprpaper nmap openssl dig rofi
 
     #programming sht
-    python3 texliveFull uv gcc gnumake libgccjit gdb cmake nodejs python312 python312Packages.virtualenv
+    python3 texliveSmall uv gcc gnumake libgccjit gdb cmake nodejs sqlite
     
     #rendering libraries and graphics stuff
     gtk3 gtk4 glib xwayland
@@ -87,6 +87,9 @@
 
     #yucky apps 
     zoom-us spotify
+
+    #python packages
+    python312 python312Packages.numpy python312Packages.virtualenv python312Packages.requests
   ];
 
   #services
