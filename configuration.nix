@@ -26,7 +26,17 @@
     allowedTCPPorts = [ 8096 8920 ];
     allowedUDPPorts = [ 1900 7359 ];
   };
-
+  #use iwd as backend
+  networking.wireless.iwd.enable = true;
+  networking.wireless.iwd.settings = {
+    Network = {
+      EnableIPv6 = true;
+    };
+    Settings = {
+      AutoConnect = true;
+    };
+  };
+  networking.networkmanager.wifi.backend = "iwd";
  
   time.timeZone = "America/Chicago";
 
