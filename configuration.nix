@@ -12,7 +12,10 @@
     "pcie_aspm.policy=powersave"
     "amdgpu.ppfeaturemask=0xffff7fff"
     "amdgpu.vm_stack_size=4"
-    "amdgpu.dcdebugmask=0x4"
+    "amdgpu.dcdebugmask=0x10"
+    "acpi_backlight=vendor"
+    "acpi_osi=Linux"
+    "idle=nomwait"
   ];
 
   #system versionn, do not change
@@ -51,18 +54,20 @@
   users.users.bloppai = {
     isNormalUser = true;
     description = "bloppai";
-    extraGroups = [ "networkmanager" "wheel" "audio" "docker" "video"];
+    extraGroups = [ "networkmanager" "wheel" "audio" "docker" "video" "input"];
     packages = with pkgs; [];
   };
 
   #nix settings
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.auto-optimise-store = true;
 
   #hardware settings 
   security.rtkit.enable = true; #for improved audio performance
   hardware = {
     bluetooth.enable = true;
+    enableAllFirmware = true;
   };
  
   #environment
@@ -78,10 +83,10 @@
     vim curl wget
 
     #utilities
-    pavucontrol fastfetch brightnessctl unzip swaynotificationcenter playerctl unrar ntfs3g btop hyprpaper nmap openssl dig rofi
+    pavucontrol fastfetch brightnessctl unzip swaynotificationcenter playerctl unrar ntfs3g btop hyprpaper nmap openssl dig rofi acpilight
 
     #programming sht
-    python3 texliveSmall uv gcc gnumake libgccjit gdb cmake nodejs sqlite
+    python3 texliveSmall uv gcc gnumake libgccjit gdb cmake nodejs sqlite texliveSmall R ghc ihaskell postgresql jdk8_headless railway
     
     #rendering libraries and graphics stuff
     gtk3 gtk4 glib xwayland
@@ -96,10 +101,13 @@
     tree-sitter ripgrep fd prettier stylua black shfmt python3Packages.pip lua-language-server pyright typescript-language-server yaml-language-server 
 
     #yucky apps 
-    zoom-us spotify
+    zoom-us spotify vscode
 
     #python packages
     python312 python312Packages.numpy python312Packages.virtualenv python312Packages.requests
+
+    #haskell packages
+    haskellPackages.HUnit
   ];
 
   #services
