@@ -2,20 +2,24 @@
 
 {
   #boot stuff
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot";
+    };
+    grub = {
+      useOSProber = true;
+      devices = [ "nodev" ];
+      efiSupport = true;
+      enable = true;
+      configurationLimit = 2;
+    };
+  };
+
   #boot.kernelPackages = pkgs.linuxPackages_latest;
 
   #kernel parameters
   boot.kernelParams = [
-    "amd_pstate=active"
-    "pcie_aspm.policy=powersave"
-    "amdgpu.ppfeaturemask=0xffff7fff"
-    "amdgpu.vm_stack_size=4"
-    "amdgpu.dcdebugmask=0x10"
-    "acpi_backlight=vendor"
-    "acpi_osi=Linux"
-    "idle=nomwait"
   ];
 
   #system versionn, do not change
@@ -62,6 +66,11 @@
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.auto-optimise-store = true;
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
 
   #hardware settings 
   security.rtkit.enable = true; #for improved audio performance
