@@ -92,10 +92,10 @@
     vim curl wget
 
     #utilities
-    pavucontrol fastfetch brightnessctl unzip swaynotificationcenter playerctl unrar ntfs3g btop hyprpaper nmap openssl dig rofi acpilight
+    pavucontrol fastfetch brightnessctl unzip swaynotificationcenter playerctl unrar ntfs3g btop hyprpaper nmap openssl dig rofi acpilight zip
 
     #programming sht
-    python3 texliveSmall uv gcc gnumake libgccjit gdb cmake nodejs sqlite texliveSmall R ghc ihaskell postgresql jdk8_headless railway
+    python3 texliveSmall uv gcc gnumake libgccjit gdb cmake nodejs sqlite texliveSmall R ghc ihaskell postgresql jdk17 railway
     
     #rendering libraries and graphics stuff
     gtk3 gtk4 glib xwayland
