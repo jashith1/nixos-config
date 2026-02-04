@@ -95,7 +95,7 @@
     pavucontrol fastfetch brightnessctl unzip swaynotificationcenter playerctl unrar ntfs3g btop hyprpaper nmap openssl dig rofi acpilight zip lazygit
 
     #programming sht
-    python3 texliveFull uv gcc gnumake libgccjit gdb cmake nodejs sqlite texliveSmall R ghc ihaskell postgresql jdk17 railway
+    python3 texliveFull uv gcc gnumake libgccjit gdb cmake nodejs sqlite texliveSmall R ghc ihaskell postgresql jdk17 railway lua
     
     #rendering libraries and graphics stuff
     gtk3 gtk4 glib xwayland
