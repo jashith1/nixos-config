@@ -182,10 +182,7 @@
     waybar.enable = true;
     silentSDDM = {
       enable = true;
-      theme = "catppuccin-mocha";
-      backgrounds = {
-        astronaut = ./assets/astronaut.png;
-      };
+      theme = "rei";
     };
   };
 
