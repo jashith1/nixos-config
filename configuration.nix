@@ -2,25 +2,46 @@
 
 {
   #boot stuff
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot";
+  boot = {
+    #boot.kernelPackages = pkgs.linuxPackages_latest;
+
+    #enable grub as boootloader
+    loader = {
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
+      };
+
+      grub = {
+        useOSProber = true;
+        devices = [ "nodev" ];
+        efiSupport = true;
+        enable = true;
+        configurationLimit = 2;
+      };
     };
-    grub = {
-      useOSProber = true;
-      devices = [ "nodev" ];
-      efiSupport = true;
+
+    #enable splash screen
+    consoleLogLevel = 3;
+    initrd.verbose = false;
+    initrd.systemd.enable = true;
+    kernelParams = [
+        "quiet"
+        "splash"
+        "boot.shell_on_fail"
+        "udev.log_priority=3"
+        "rd.systemd.show_status=auto"
+    ];
+    plymouth = {
       enable = true;
-      configurationLimit = 2;
+      theme = "deus_ex";
+      themePackages = with pkgs; [
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "deus_ex" "lone" "rings" ];
+        })
+      ];
     };
   };
-
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  #kernel parameters
-  boot.kernelParams = [
-  ];
 
   #system versionn, do not change
   system.stateVersion = "25.05"; 
@@ -114,9 +135,6 @@
 
     #python packages
     python312 python312Packages.numpy python312Packages.virtualenv python312Packages.requests
-
-    #haskell packages
-    haskellPackages.HUnit
   ];
 
   #services
