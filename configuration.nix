@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
+  imports = [inputs.silentSDDM.nixosModules.default];
+
   #boot stuff
   boot = {
     #boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -24,22 +26,20 @@
     #enable splash screen
     consoleLogLevel = 3;
     initrd.verbose = false;
-    initrd.systemd.enable = true;
     kernelParams = [
         "quiet"
-        "splash"
-        "boot.shell_on_fail"
         "udev.log_priority=3"
-        "rd.systemd.show_status=auto"
+        "systemd.show_status=auto"
     ];
+
     plymouth = {
       enable = true;
-      theme = "deus_ex";
-      themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "deus_ex" "lone" "rings" ];
-        })
-      ];
+      #theme = "deus_ex";
+      #themePackages = with pkgs; [
+      #  (adi1090x-plymouth-themes.override {
+      #    selected_themes = [ "deus_ex" "lone" "rings" ];
+      #  })
+      #];
     };
   };
 
@@ -180,6 +180,13 @@
     };
     git.enable = true;
     waybar.enable = true;
+    silentSDDM = {
+      enable = true;
+      theme = "catppuccin-mocha";
+      backgrounds = {
+        astronaut = ./assets/astronaut.png;
+      };
+    };
   };
 
   #virtualisation
