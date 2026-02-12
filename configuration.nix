@@ -182,7 +182,21 @@
     waybar.enable = true;
     silentSDDM = {
       enable = true;
-      theme = "rei";
+      #theme = "rei";
+      theme = "default";
+      #theme = "catppuccin-mocha";
+      #backgrounds = {astronaut = ./wallpapers/astronaut.png;};
+      #settings = {
+      #  "General" = {
+      #    scale = 2.0;
+      #  };
+      #  "LockScreen" = {
+      #    background = "astronaut.png"; #when first boot (before typing in pw)
+      #  };
+      #  "LoginScreen" = {
+      #    background = "astronaut.png"; #when typing in password background
+      #  };
+      #};
     };
   };
 
@@ -208,3 +222,4 @@
     ];
   };
 }
+
