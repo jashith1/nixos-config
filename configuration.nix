@@ -198,6 +198,7 @@
       #  };
       #};
     };
+    tmux.enable = true;
   };
 
   #virtualisation
