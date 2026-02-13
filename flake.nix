@@ -22,6 +22,7 @@
         ./configuration.nix
         ./hardware-configuration.nix
         nixos-hardware.nixosModules.asus-zephyrus-ga402
+        ./modules/silent-sddm.nix
       ];
     };
   };
