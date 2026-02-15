@@ -30,6 +30,8 @@
         "quiet"
         "udev.log_priority=3"
         "systemd.show_status=auto"
+        "amdgpu.gpu_recovery=1"
+        "pcie_aspm=off"
     ];
 
     plymouth = {
