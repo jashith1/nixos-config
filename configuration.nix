@@ -164,27 +164,6 @@
   #programs
   programs = {
     hyprland.enable = true;
-    hyprlock.enable = true;
-    firefox.enable = true;
-    chromium.enable = true;
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-    };
-    git.enable = true;
-    waybar.enable = true;
-    tmux.enable = true;
-    bash.interactiveShellInit = ''
-      testCpp() {
-        if [ -z "$1" ]; then
-          make -C tests -j12 run-all -k
-        else
-          make -C tests -j12 run/$1
-        fi
-      }
-    '';
   };
 
   #virtualisation
