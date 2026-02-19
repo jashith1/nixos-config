@@ -103,13 +103,6 @@
   };
  
   #environment
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1"; #wayland apps use ozone
-    grim="grimblast";
-    wl="wl-copy";
-    MOZ_ENABLE_WAYLAND = 0;
-    cmpl="g++ -std=c++17 -Wall -Wextra -pedantic-errors -Weffc++ -Wno-unused-parameter -fsanitize=undefined,address *.cpp"; #for CSCE120 cpp compiler options
-  };
   environment.systemPackages = with pkgs; [
     #must have
     vim curl wget
@@ -133,7 +126,7 @@
     tree-sitter luarocks ripgrep fd prettier stylua black shfmt python3Packages.pip lua-language-server pyright typescript-language-server yaml-language-server clang-tools ruff stylua zathura xdotool haskellPackages.fourmolu nil haskell-language-server texlab
 
     #yucky apps 
-    zoom-us spotify vscode
+    zoom-us spotify vscode discord
 
     #python packages
     python312 python312Packages.numpy python312Packages.virtualenv python312Packages.requests
@@ -183,6 +176,15 @@
     git.enable = true;
     waybar.enable = true;
     tmux.enable = true;
+    bash.interactiveShellInit = ''
+      testCpp() {
+        if [ -z "$1" ]; then
+          make -C tests -j12 run-all -k
+        else
+          make -C tests -j12 run/$1
+        fi
+      }
+    '';
   };
 
   #virtualisation
