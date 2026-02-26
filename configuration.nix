@@ -27,11 +27,17 @@
     consoleLogLevel = 3;
     initrd.verbose = false;
     kernelParams = [
+        #quiet the boot screen
         "quiet"
         "udev.log_priority=3"
         "systemd.show_status=auto"
+
+        #testing gpu fixes
+        "pcie_aspm=force" 
+        "amdgpu.ppfeaturemask=0xffffffff"
+        "amdgpu.runpm=0" 
         "amdgpu.gpu_recovery=1"
-        "pcie_aspm=off"
+        "amdgpu.sg_display=0"
     ];
 
     plymouth = {
@@ -100,6 +106,7 @@
   hardware = {
     bluetooth.enable = true;
     enableAllFirmware = true;
+    enableRedistributableFirmware = true;
   };
  
   #environment
