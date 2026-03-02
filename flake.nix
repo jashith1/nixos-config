@@ -3,7 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    #nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11"; #stable
+
+    #nixos-hardware.url = "github:NixOS/nixos-hardware/master"; #my laptop's default settings, disabling because it's power policy is too aggressive
+
     terminaltexteffects = {
       url = "github:ChrisBuilds/terminaltexteffects";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,7 +24,7 @@
       modules = [
         ./configuration.nix
         ./hardware-configuration.nix
-        nixos-hardware.nixosModules.asus-zephyrus-ga402
+        #nixos-hardware.nixosModules.asus-zephyrus-ga402
         ./modules/silent-sddm.nix
       ];
     };

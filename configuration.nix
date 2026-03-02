@@ -5,7 +5,9 @@
 
   #boot stuff
   boot = {
-    #boot.kernelPackages = pkgs.linuxPackages_latest;
+    #kernelPackages = pkgs.linuxPackages_latest;
+    #kernelPackages = pkgs.linuxPackages_lts;
+    initrd.includeDefaultModules = true; #loads some kernel modules to initrd, adds stability to early boot process visuals
 
     #enable grub as boootloader
     loader = {
@@ -21,6 +23,8 @@
         enable = true;
         configurationLimit = 2;
       };
+
+      timeout = 0;
     };
 
     #enable splash screen
@@ -32,22 +36,18 @@
         "udev.log_priority=3"
         "systemd.show_status=auto"
 
-        #testing gpu fixes
-        "pcie_aspm=force" 
-        "amdgpu.ppfeaturemask=0xffffffff"
-        "amdgpu.runpm=0" 
-        "amdgpu.gpu_recovery=1"
-        "amdgpu.sg_display=0"
+        #battery stuff
+        "amd_pstate=active"
     ];
 
     plymouth = {
       enable = true;
-      #theme = "deus_ex";
-      #themePackages = with pkgs; [
-      #  (adi1090x-plymouth-themes.override {
-      #    selected_themes = [ "deus_ex" "lone" "rings" ];
-      #  })
-      #];
+      theme = "deus_ex";
+      themePackages = with pkgs; [
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "deus_ex" "lone" "rings" ];
+        })
+      ];
     };
   };
 
@@ -107,6 +107,10 @@
     bluetooth.enable = true;
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
+    cpu.amd.updateMicrocode = true;
+    graphics.enable = true;
+    graphics.enable32Bit = true;
+    amdgpu.initrd.enable = true; #loads amd drivers to initrd, helps early boot visual stability
   };
  
   #environment
@@ -160,10 +164,9 @@
     supergfxd = {
       enable = true;
     };
-    asusd = {
-      enable = true;
-      enableUserService = true;
-    };
+    asusd.enable = true;
+
+    fstrim.enable = true;
 
     xserver.xkb.layout = "us"; #x11 fallback
   };
