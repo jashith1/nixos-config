@@ -59,8 +59,8 @@
   networking.hostName = "bloppai"; # Define your hostname.
   networking.firewall = {
     enable = true;
-    #allowedTCPPorts = [ 8096 8920 ];
-    #allowedUDPPorts = [ 1900 7359 ];
+    allowedTCPPorts = [ 8096 8920 ];
+    allowedUDPPorts = [ 1900 7359 ];
   };
   #use iwd as backend
   networking.wireless.iwd.enable = true;
