@@ -22,84 +22,40 @@
   #     xxx
   # '';
 
-  # set cursor size and dpi for 4k monitor
-  xresources.properties = {
-    "Xcursor.size" = 16;
-    "Xft.dpi" = 172;
-  };
-
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1"; #wayland apps use ozone
-    grim="grimblast";
-    wl="wl-copy";
-    MOZ_ENABLE_WAYLAND = 0;
-    cmpl="g++ -std=c++17 -Wall -Wextra -pedantic-errors -Weffc++ -Wno-unused-parameter -fsanitize=undefined,address *.cpp"; #for CSCE120 cpp compiler options
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
+    MOZ_ENABLE_WAYLAND = 1;
   };
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    nnn # terminal file manager
+    # file managers
+    nautilus nnn
 
     # archives
-    zip
-    xz
-    unzip
-    p7zip
+    zip xz unzip unrar
 
-    # utils
-    ripgrep # recursively searches directories for a regex pattern
-    jq # A lightweight and flexible command-line JSON processor
-    yq-go # yaml processor https://github.com/mikefarah/yq
-    eza # A modern replacement for ‘ls’
-    fzf # A command-line fuzzy finder
-    tmux
-
-    # networking tools
-    mtr # A network diagnostic tool
-    iperf3
-    dnsutils  # `dig` + `nslookup`
-    ldns # replacement of `dig`, it provide the command `drill`
-    aria2 # A lightweight multi-protocol & multi-source command-line download utility
-    socat # replacement of openbsd-netcat
-    nmap # A utility for network discovery and security auditing
-    ipcalc  # it is a calculator for the IPv4/v6 addresses
-
-    # misc
-    cowsay
-    file
-    which
-    tree
-    gnused
-    gnutar
-    gawk
-    zstd
-    gnupg
-
-    # nix related
-    #
-    # it provides the command `nom` works just like `nix`
-    # with more details log output
-    nix-output-monitor
-
-    # productivity
-    hugo # static site generator
-    glow # markdown previewer in terminal
-
-    btop  # replacement of htop/nmon
-    iotop # io monitoring
-    iftop # network monitoring
-
-    # system call monitoring
-    strace # system call monitoring
-    ltrace # library call monitoring
-    lsof # list open files
+    # cli utilities
+    ripgrep jq yq-go fzf tmux curl wget openssl fd tree-sitter
 
     # system tools
-    sysstat
-    lm_sensors # for `sensors` command
-    ethtool
-    pciutils # lspci
-    usbutils # lsusb
+    btop lm_sensors fastfetch brightnessctl efibootmgr ntfs3g
+
+    # networking
+    iperf3 dnsutils nmap
+
+    # desktop / wayland tools
+    rofi hyprpaper swaynotificationcenter grimblast slurp wl-clipboard xwayland playerctl quickshell
+
+    # libraries
+    gtk3 gtk4 glib
+
+    # dev
+    lazygit
+
+    # applications
+    kitty spotify zoom-us vlc qbittorrent mullvad-vpn tor-browser pavucontrol
   ];
 
   programs = {
@@ -113,18 +69,17 @@
 
     #starship.enable = true;
 
+    #shells
     bash = {
       enable = true;
       enableCompletion = true;
-      # TODO add your custom bashrc here
-      bashrcExtra = ''
-        export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
-      '';
 
       shellAliases = {
-        k = "kubectl";
-        urldecode = "python3 -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.stdin.read()))'";
-        urlencode = "python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.stdin.read()))'";
+        grim="grimblast";
+        wl="wl-copy";
+        cmpl="g++ -std=c++17 -Wall -Wextra -pedantic-errors -Weffc++ -Wno-unused-parameter -fsanitize=undefined,address *.cpp"; #for CSCE120 cpp compiler options
+        ns="sudo nixos-rebuild switch --flake ~/nixos-config#bloppai";
+        lg="lazygit";
       };
 
       initExtra = ''
@@ -138,9 +93,12 @@
       '';
     };
 
+    #browsers
     firefox.enable = true;
     chromium.enable = true;
 
+    #editors
+    vim.enable = true;
     neovim = {
       enable = true;
       defaultEditor = true;
@@ -148,6 +106,7 @@
       vimAlias = true;
     };
 
+    #looks
     waybar.enable = true;
     hyprlock.enable = true;
     caelestia = {

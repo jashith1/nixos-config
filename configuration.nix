@@ -114,29 +114,11 @@
  
   #environment
   environment.systemPackages = with pkgs; [
-    #must have
-    vim curl wget
-
-    #utilities
-    pavucontrol fastfetch brightnessctl unzip swaynotificationcenter playerctl unrar ntfs3g btop hyprpaper nmap openssl dig rofi acpilight zip lazygit efibootmgr quickshell
-
     #programming sht
-    python3 texliveFull uv gcc gnumake libgccjit gdb cmake nodejs sqlite texliveSmall R ghc ihaskell postgresql jdk17 railway lua
+    #python3 texliveFull uv gcc gnumake libgccjit gdb cmake nodejs sqlite texliveSmall R ghc ihaskell postgresql jdk17 railway lua
     
-    #rendering libraries and graphics stuff
-    gtk3 gtk4 glib xwayland
-
-    #input stuff (copy, screenshot)
-    grimblast slurp wl-clipboard
-
-    #nice apps 
-    kitty mullvad-vpn qbittorrent vlc tor-browser chromium nautilus
-
     #neovim plugins, LSP, etc
-    tree-sitter luarocks ripgrep fd prettier stylua black shfmt python3Packages.pip lua-language-server pyright typescript-language-server yaml-language-server clang-tools ruff stylua zathura xdotool haskellPackages.fourmolu nil haskell-language-server texlab
-
-    #yucky apps 
-    zoom-us spotify vscode
+    #tree-sitter luarocks ripgrep fd prettier stylua black shfmt python3Packages.pip lua-language-server pyright typescript-language-server yaml-language-server clang-tools ruff stylua zathura xdotool haskellPackages.fourmolu nil haskell-language-server texlab
   ];
 
   #services
