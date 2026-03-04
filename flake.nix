@@ -2,8 +2,8 @@
   description = "NixOS system using flakes";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    #nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11"; #stable
+    #nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11"; #stable
 
     #nixos-hardware.url = "github:NixOS/nixos-hardware/master"; #my laptop's default settings, disabling because it's power policy is too aggressive
 

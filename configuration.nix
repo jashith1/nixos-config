@@ -6,7 +6,8 @@
   #boot stuff
   boot = {
     #kernelPackages = pkgs.linuxPackages_latest;
-    #kernelPackages = pkgs.linuxPackages_lts;
+    kernelPackages = pkgs.linuxPackages;
+
     initrd.includeDefaultModules = true; #loads some kernel modules to initrd, adds stability to early boot process visuals
 
     #enable grub as boootloader
@@ -21,10 +22,8 @@
         devices = [ "nodev" ];
         efiSupport = true;
         enable = true;
-        configurationLimit = 2;
+        configurationLimit = 3;
       };
-
-      timeout = 0;
     };
 
     #enable splash screen
@@ -36,18 +35,19 @@
         "udev.log_priority=3"
         "systemd.show_status=auto"
 
-        #battery stuff
-        "amd_pstate=active"
+        #gpu fix testing
+        "amdgpu.dcdebugmask=0x10" # Disables PSR (Panel Self Refresh)
+        "amdgpu.sg_display=0"     # Disables Scatter/Gather (fixes flickering on some APUs)
     ];
 
     plymouth = {
       enable = true;
-      theme = "deus_ex";
-      themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "deus_ex" "lone" "rings" ];
-        })
-      ];
+      #theme = "deus_ex";
+      #themePackages = with pkgs; [
+      #  (adi1090x-plymouth-themes.override {
+      #    selected_themes = [ "deus_ex" "lone" "rings" ];
+      #  })
+      #];
     };
   };
 
@@ -59,8 +59,8 @@
   networking.hostName = "bloppai"; # Define your hostname.
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 8096 8920 ];
-    allowedUDPPorts = [ 1900 7359 ];
+    #allowedTCPPorts = [ 8096 8920 ];
+    #allowedUDPPorts = [ 1900 7359 ];
   };
   #use iwd as backend
   networking.wireless.iwd.enable = true;
@@ -105,7 +105,6 @@
   security.rtkit.enable = true; #for improved audio performance
   hardware = {
     bluetooth.enable = true;
-    enableAllFirmware = true;
     enableRedistributableFirmware = true;
     cpu.amd.updateMicrocode = true;
     graphics.enable = true;
@@ -137,10 +136,7 @@
     tree-sitter luarocks ripgrep fd prettier stylua black shfmt python3Packages.pip lua-language-server pyright typescript-language-server yaml-language-server clang-tools ruff stylua zathura xdotool haskellPackages.fourmolu nil haskell-language-server texlab
 
     #yucky apps 
-    zoom-us spotify vscode discord
-
-    #python packages
-    python312 python312Packages.numpy python312Packages.virtualenv python312Packages.requests
+    zoom-us spotify vscode
   ];
 
   #services
@@ -161,14 +157,15 @@
       wireplumber.enable = true;
     };
 
-    supergfxd = {
-      enable = true;
-    };
+    supergfxd.enable = true;
     asusd.enable = true;
 
     fstrim.enable = true;
 
-    xserver.xkb.layout = "us"; #x11 fallback
+    xserver = { #x11 fallback
+      xkb.layout = "us";
+      videoDrivers = ["amdgpu"];
+    };
   };
 
   #programs
