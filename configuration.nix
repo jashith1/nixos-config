@@ -54,6 +54,9 @@
   #system versionn, do not change
   system.stateVersion = "25.05"; 
 
+  #just symlink etc/nixos to nixos-config for consistency/norms
+  environment.etc."nixos".source = "/home/bloppai/nixos-config";
+
   #networking and time
   networking.networkmanager.enable = true;
   networking.hostName = "bloppai"; # Define your hostname.
