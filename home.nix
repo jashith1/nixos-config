@@ -126,22 +126,32 @@
     hyprlock.enable = true;
     caelestia = {
       enable = true;
-      systemd = {
-        #enable = false; # if you prefer starting from your compositor
-        target = "graphical-session.target";
-        environment = [];
-      };
       settings = {
-        bar.status = {
-          showBattery = true;
+        general = {
+          idle = {
+            timeouts = [];
+          };
         };
-        paths.wallpaperDir = "~/.config/wallpapers/";
+        bar = {
+          status = {
+            showAudio = true;
+          };
+        };
+
+        services = {
+          useFahrenheitPerformance = false;
+        };
+
+        background = {
+          enabled = true;
+          wallpaperEnabled = true;
+        };
+
+        paths.wallpaperDir = "${config.home.homeDirectory}/.config/wallpapers";
       };
+
       cli = {
         enable = true; # Also add caelestia-cli to path
-        settings = {
-          theme.enableGtk = false;
-        };
       };
     };
   };
