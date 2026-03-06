@@ -40,15 +40,15 @@
         "amdgpu.sg_display=0"     # Disables Scatter/Gather (fixes flickering on some APUs)
     ];
 
-    plymouth = {
-      enable = true;
+    #plymouth = {
+      #enable = true;
       #theme = "deus_ex";
       #themePackages = with pkgs; [
       #  (adi1090x-plymouth-themes.override {
       #    selected_themes = [ "deus_ex" "lone" "rings" ];
       #  })
       #];
-    };
+    #};
   };
 
   #system versionn, do not change

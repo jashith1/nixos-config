@@ -56,7 +56,22 @@
 
     # applications
     kitty spotify zoom-us vlc qbittorrent mullvad-vpn tor-browser pavucontrol
+
+    #theming stuff
+    bibata-cursors
   ];
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    hyprcursor.enable = true;
+
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Ice";
+
+    size = 24;
+    hyprcursor.size = 24;
+  };
 
   programs = {
     git = {
