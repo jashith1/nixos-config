@@ -83,6 +83,7 @@
       };
     };
     direnv.enable = true;
+    zoxide.enable = true;
 
     #starship.enable = true;
 
