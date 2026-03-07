@@ -31,9 +31,9 @@
     initrd.verbose = false;
     kernelParams = [
         #quiet the boot screen
-        "quiet"
-        "udev.log_priority=3"
-        "systemd.show_status=auto"
+        #"quiet"
+        #"udev.log_priority=3"
+        #"systemd.show_status=auto"
 
         #gpu fix testing
         "amdgpu.dcdebugmask=0x10" # Disables PSR (Panel Self Refresh)
@@ -96,12 +96,19 @@
 
   #nix settings
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.settings.auto-optimise-store = true;
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      auto-optimise-store = true;
+      trusted-users = [ "root" "bloppai" ];
+      #access-tokens = [ "github.com=" ]; 
+    };
+
+    gc = {
+      dates = "weekly";
+      automatic = true;
+      options = "--delete-older-than 7d";
+    };
   };
 
   #hardware settings 
@@ -132,7 +139,6 @@
     };
 
     blueman.enable = true;
-
     pulseaudio.enable = false; #using pipewire instead
     pipewire = {
       enable = true;
@@ -141,6 +147,7 @@
       pulse.enable = true;
       wireplumber.enable = true;
     };
+    upower.enable = true;
 
     supergfxd.enable = true;
     asusd.enable = true;

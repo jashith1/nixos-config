@@ -52,7 +52,7 @@
     gtk3 gtk4 glib
 
     # dev
-    lazygit
+    lazygit devenv
 
     # applications
     kitty spotify zoom-us vlc qbittorrent mullvad-vpn tor-browser pavucontrol
@@ -74,6 +74,7 @@
   };
 
   programs = {
+    #dev tools
     git = {
       enable = true;
       settings.user = {
@@ -81,6 +82,7 @@
         email = "jashith.r1@gmail.com";
       };
     };
+    direnv.enable = true;
 
     #starship.enable = true;
 
