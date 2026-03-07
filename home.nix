@@ -87,7 +87,12 @@
         email = "jashith.r1@gmail.com";
       };
     };
-    direnv.enable = true;
+
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+
     zoxide.enable = true;
 
     bash.enable = true;
