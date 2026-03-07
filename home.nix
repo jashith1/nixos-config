@@ -25,8 +25,13 @@
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1"; #wayland apps use ozone
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
-    MOZ_ENABLE_WAYLAND = 1;
+    MOZ_ENABLE_WAYLAND = 0;
   };
+
+  xdg.enable = true; #enable xdg directory management
+
+  #symlink .zshrc file to the actual one inside .config
+  home.file.".zshrc".source = config.lib.file.mkOutOfStoreSymlink "/home/bloppai/.config/zsh/.zshrc";
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
@@ -85,31 +90,9 @@
     direnv.enable = true;
     zoxide.enable = true;
 
+    bash.enable = true;
+
     #starship.enable = true;
-
-    #shells
-    bash = {
-      enable = true;
-      enableCompletion = true;
-
-      shellAliases = {
-        grim="grimblast";
-        wl="wl-copy";
-        cmpl="g++ -std=c++17 -Wall -Wextra -pedantic-errors -Weffc++ -Wno-unused-parameter -fsanitize=undefined,address *.cpp"; #for CSCE120 cpp compiler options
-        ns="sudo nixos-rebuild switch --flake ~/nixos-config#bloppai";
-        lg="lazygit";
-      };
-
-      initExtra = ''
-        testCpp() {
-          if [ -z "$1" ]; then
-            make -C tests -j12 run-all -k
-          else
-            make -C tests -j12 run/$1
-          fi
-        }
-      '';
-    };
 
     #browsers
     firefox.enable = true;

@@ -164,6 +164,7 @@
   programs = {
     hyprland.enable = true;
     zsh.enable = true;
+    bash.enable = true;
   };
 
   #virtualisation
