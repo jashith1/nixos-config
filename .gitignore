@@ -1,13 +1,4 @@
-# Devenv
-.devenv*
-devenv.local.nix
-devenv.local.yaml
-
-# direnv
-.direnv
-
-# pre-commit
-.pre-commit-config.yaml
+#YOU NEED TO TRACK HARDWARE-CONFIG! Or flakes cannot see it
 
 # Devenv
 .devenv*
@@ -20,4 +11,13 @@ devenv.local.yaml
 # pre-commit
 .pre-commit-config.yaml
 
-hardware-configuration.nix
+# Devenv
+.devenv*
+devenv.local.nix
+devenv.local.yaml
+
+# direnv
+.direnv
+
+# pre-commit
+.pre-commit-config.yaml
