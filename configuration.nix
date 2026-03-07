@@ -91,7 +91,7 @@
     isNormalUser = true;
     description = "bloppai";
     extraGroups = [ "networkmanager" "wheel" "audio" "docker" "video" "input"];
-    packages = with pkgs; [];
+    shell = pkgs.zsh;
   };
 
   #nix settings
@@ -163,6 +163,7 @@
   #programs
   programs = {
     hyprland.enable = true;
+    zsh.enable = true;
   };
 
   #virtualisation
