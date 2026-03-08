@@ -90,7 +90,7 @@
   users.users.bloppai = {
     isNormalUser = true;
     description = "bloppai";
-    extraGroups = [ "networkmanager" "wheel" "audio" "docker" "video" "input"];
+    extraGroups = [ "networkmanager" "wheel" "audio" "docker" "video" "input" "uinput"];
     shell = pkgs.zsh;
   };
 
@@ -153,6 +153,14 @@
     asusd.enable = true;
 
     fstrim.enable = true;
+
+    keyd = {
+      enable = true;
+      keyboards.default.settings.main = {
+        #for vim
+        capslock = "esc";
+      };
+    };
 
     xserver = { #x11 fallback
       xkb.layout = "us";
