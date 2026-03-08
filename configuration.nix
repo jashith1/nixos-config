@@ -38,6 +38,8 @@
         #gpu fix testing
         "amdgpu.dcdebugmask=0x10" # Disables PSR (Panel Self Refresh)
         "amdgpu.sg_display=0"     # Disables Scatter/Gather (fixes flickering on some APUs)
+        "idle=nomwait"
+        "nomodeset"
     ];
 
     #plymouth = {
