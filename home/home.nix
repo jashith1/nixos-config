@@ -22,6 +22,8 @@
   #     xxx
   # '';
 
+  home.shell.enableZshIntegration = true;
+
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1"; #wayland apps use ozone
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
