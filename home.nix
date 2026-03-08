@@ -26,6 +26,7 @@
     NIXOS_OZONE_WL = "1"; #wayland apps use ozone
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
     MOZ_ENABLE_WAYLAND = 0;
+    MANPAGER="bat -plman";
   };
 
   xdg.enable = true; #enable xdg directory management
@@ -144,6 +145,13 @@
 
       cli = {
         enable = true; # Also add caelestia-cli to path
+      };
+    };
+    bat = {
+      enable = true;
+      config = {
+        theme = "Catppuccin Mocha";
+        style = "plain";
       };
     };
   };

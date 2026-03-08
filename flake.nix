@@ -34,17 +34,16 @@
         ./configuration.nix
         ./hardware-configuration.nix
 
-        home-manager.nixosModules.home-manager
-        {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.bloppai = { ... }: {
-              imports = [
-                ./home.nix
-                inputs.caelestia-shell.homeManagerModules.default
-              ];
-            };
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = { inherit inputs; };
+          home-manager.users.bloppai = { ... }: {
+            imports = [
+              ./home.nix
+              inputs.caelestia-shell.homeManagerModules.default
+            ];
+          };
         }
 
         #nixos-hardware.nixosModules.asus-zephyrus-ga402
