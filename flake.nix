@@ -40,7 +40,7 @@
           home-manager.extraSpecialArgs = { inherit inputs; };
           home-manager.users.bloppai = { ... }: {
             imports = [
-              ./home.nix
+              ./home/home.nix
               inputs.caelestia-shell.homeManagerModules.default
             ];
           };

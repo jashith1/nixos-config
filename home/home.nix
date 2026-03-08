@@ -103,10 +103,12 @@
 
     #browsers
     firefox.enable = true;
+
     chromium.enable = true;
 
     #editors
     vim.enable = true;
+
     neovim = {
       enable = true;
       defaultEditor = true;
@@ -116,7 +118,9 @@
 
     #looks
     waybar.enable = true;
+
     hyprlock.enable = true;
+
     caelestia = {
       enable = true;
       settings = {
@@ -147,6 +151,7 @@
         enable = true; # Also add caelestia-cli to path
       };
     };
+
     bat = {
       enable = true;
       config = {
