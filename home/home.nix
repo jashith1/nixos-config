@@ -32,6 +32,10 @@
   };
 
   xdg.enable = true; #enable xdg directory management
+  gtk = {
+    enable = true;
+    colorScheme = "dark";
+  };
 
   #symlink .zshrc file to the actual one inside .config
   home.file.".zshrc".source = config.lib.file.mkOutOfStoreSymlink "/home/bloppai/.config/zsh/.zshrc";
@@ -58,7 +62,7 @@
     rofi hyprpaper swaynotificationcenter grimblast slurp wl-clipboard xwayland playerctl quickshell
 
     # libraries
-    gtk3 gtk4 glib
+    glib
 
     # dev
     lazygit devenv
