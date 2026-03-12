@@ -68,7 +68,7 @@
     lazygit devenv
 
     # applications
-    kitty spotify zoom-us vlc qbittorrent mullvad-vpn tor-browser pavucontrol
+    kitty spotify zoom-us vlc qbittorrent mullvad-vpn tor-browser pavucontrol jellyfin-desktop
 
     #theming stuff
     bibata-cursors
@@ -158,6 +158,7 @@
       };
     };
 
+    #misc
     bat = {
       enable = true;
       config = {
@@ -165,6 +166,8 @@
         style = "plain";
       };
     };
+
+    texlive.enable = true;
   };
 
   home.stateVersion = "25.11"; #dont change
