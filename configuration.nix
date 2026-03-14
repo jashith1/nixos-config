@@ -5,8 +5,8 @@
 
   #boot stuff
   boot = {
-    #kernelPackages = pkgs.linuxPackages_latest;
-    kernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.linuxPackages_latest;
+    #kernelPackages = pkgs.linuxPackages;
 
     initrd.includeDefaultModules = true; #loads some kernel modules to initrd, adds stability to early boot process visuals
 
@@ -60,7 +60,7 @@
 
   #networking and time
   networking.networkmanager.enable = true;
-  networking.hostName = "bloppai"; # Define your hostname.
+  networking.hostName = "g14"; # Define your hostname.
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 8096 8920 ];
@@ -162,6 +162,8 @@
         capslock = "esc";
       };
     };
+
+    tailscale.enable = true;
 
     xserver = { #x11 fallback
       xkb.layout = "us";

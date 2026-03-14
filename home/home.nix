@@ -65,7 +65,7 @@
     glib
 
     # dev
-    lazygit devenv
+    lazygit devenv texliveFull
 
     # applications
     kitty spotify zoom-us vlc qbittorrent mullvad-vpn tor-browser pavucontrol jellyfin-desktop
@@ -166,8 +166,6 @@
         style = "plain";
       };
     };
-
-    texlive.enable = true;
   };
 
   home.stateVersion = "25.11"; #dont change
