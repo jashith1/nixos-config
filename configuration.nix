@@ -5,8 +5,11 @@
 
   #boot stuff
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
     #kernelPackages = pkgs.linuxPackages;
+    #kernelPackages = pkgs.linuxPackages_latest;
+
+    #zen kernel
+    kernelPackages = pkgs.linuxPackages_zen;
 
     initrd.includeDefaultModules = true; #loads some kernel modules to initrd, adds stability to early boot process visuals
 
