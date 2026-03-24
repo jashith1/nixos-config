@@ -65,10 +65,11 @@
     glib
 
     # dev
-    lazygit devenv texliveFull
+    lazygit devenv texliveFull 
+    #nodejs python3
 
     # applications
-    kitty spotify zoom-us vlc qbittorrent mullvad-vpn tor-browser pavucontrol jellyfin-desktop
+    kitty spotify zoom-us vlc qbittorrent mullvad-vpn tor-browser pavucontrol jellyfin-desktop obsidian
 
     #theming stuff
     bibata-cursors
@@ -87,26 +88,6 @@
   };
 
   programs = {
-    #dev tools
-    git = {
-      enable = true;
-      settings.user = {
-        name = "Jashith Raghavendra";
-        email = "jashith.r1@gmail.com";
-      };
-    };
-
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-
-    zoxide.enable = true;
-
-    bash.enable = true;
-
-    #starship.enable = true;
-
     #browsers
     firefox.enable = true;
 
@@ -166,6 +147,29 @@
         style = "plain";
       };
     };
+
+    #dev tools
+    git = {
+      enable = true;
+      settings.user = {
+        name = "Jashith Raghavendra";
+        email = "jashith.r1@gmail.com";
+      };
+    };
+
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+
+    zoxide.enable = true;
+
+    bash.enable = true;
+
+    #starship.enable = true;
+
+    #While I do use devenv+direnv sometimes, it gets very messy when there are multiple venvs active
+    #uv.enable = true;
   };
 
   home.stateVersion = "25.11"; #dont change

@@ -2,6 +2,8 @@
 
 {
   imports = [inputs.silentSDDM.nixosModules.default];
+  hardware.cpu.amd.updateMicrocode = true;
+
 
   #boot stuff
   boot = {
@@ -39,8 +41,9 @@
         #"systemd.show_status=auto"
 
         #gpu fix testing
-        #"amdgpu.dcdebugmask=0x10" # Disables PSR (Panel Self Refresh)
-        #"amdgpu.sg_display=0"     # Disables Scatter/Gather (fixes flickering on some APUs)
+        "amdgpu.dcdebugmask=0x10" # Disables PSR (Panel Self Refresh)
+        "amdgpu.sg_display=0"     # Disables Scatter/Gather (fixes flickering on some APUs)
+        "iommu=pt"
         #"idle=nomwait"
     ];
 
@@ -120,7 +123,6 @@
   hardware = {
     bluetooth.enable = true;
     enableRedistributableFirmware = true;
-    cpu.amd.updateMicrocode = true;
     graphics.enable = true;
     graphics.enable32Bit = true;
     amdgpu.initrd.enable = true; #loads amd drivers to initrd, helps early boot visual stability
@@ -179,6 +181,8 @@
     hyprland.enable = true;
     zsh.enable = true;
     bash.enable = true;
+    #dynamic library management 
+    nix-ld.enable = true;
   };
 
   #virtualisation
