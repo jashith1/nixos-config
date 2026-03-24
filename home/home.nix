@@ -53,7 +53,7 @@
     ripgrep jq yq-go fzf tmux curl wget openssl fd tree-sitter
 
     # system tools
-    btop lm_sensors fastfetch brightnessctl efibootmgr ntfs3g
+    btop lm_sensors fastfetch brightnessctl efibootmgr ntfs3g railway
 
     # networking
     iperf3 dnsutils nmap
@@ -66,7 +66,6 @@
 
     # dev
     lazygit devenv texliveFull 
-    #nodejs python3
 
     # applications
     kitty spotify zoom-us vlc qbittorrent mullvad-vpn tor-browser pavucontrol jellyfin-desktop obsidian

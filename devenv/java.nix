@@ -5,31 +5,10 @@
   env.GREET = "devenv";
 
   # https://devenv.sh/packages/
-  packages = [ pkgs.sqlite-interactive ];
+  packages = [ pkgs.git ];
 
   # https://devenv.sh/languages/
-  languages = {
-    python = {
-      enable = true;
-      lsp = {
-        enable = true;
-        package = pkgs.ty;
-      };
-      uv.enable = true;
-      venv.enable = true;
-    };
-
-    javascript = {
-      enable = true;
-      npm = {
-        enable = true;
-        install.enable = true;
-      };
-    };
-    typescript.enable = true;
-  };
-
-  languages.nix.enable = true;
+  # languages.rust.enable = true;
 
   # https://devenv.sh/processes/
   # processes.dev.exec = "${lib.getExe pkgs.watchexec} -n -- ls -la";

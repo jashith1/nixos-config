@@ -174,6 +174,11 @@
       xkb.layout = "us";
       videoDrivers = ["amdgpu"];
     };
+
+    jellyfin = {
+      enable = true;
+      user = "bloppai";
+    };
   };
 
   #programs
