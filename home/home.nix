@@ -154,6 +154,9 @@
         name = "Jashith Raghavendra";
         email = "jashith.r1@gmail.com";
       };
+      extraConfig = {
+        init.defaultBranch = "main";
+      };
     };
 
     direnv = {
