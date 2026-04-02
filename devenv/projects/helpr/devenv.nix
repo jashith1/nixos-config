@@ -5,7 +5,10 @@
   env.GREET = "devenv";
 
   # https://devenv.sh/packages/
-  packages = [ pkgs.git ];
+  packages = [ 
+    pkgs.openssl
+    pkgs.nodePackages.prisma
+  ];
 
   # https://devenv.sh/languages/
   languages = {
@@ -24,7 +27,10 @@
   # processes.dev.exec = "${lib.getExe pkgs.watchexec} -n -- ls -la";
 
   # https://devenv.sh/services/
-  # services.postgres.enable = true;
+  services.postgres = {
+    enable = true;
+    initialDatabases = [{ name = "mydb"; }];
+  };
 
   # https://devenv.sh/scripts/
   scripts.hello.exec = ''
