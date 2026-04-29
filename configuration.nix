@@ -42,9 +42,11 @@
 
         #gpu fix testing
         "amdgpu.dcdebugmask=0x10" # Disables PSR (Panel Self Refresh)
-        "amdgpu.sg_display=0"     # Disables Scatter/Gather (fixes flickering on some APUs)
+        "amd_pstate=active"
+        #"amdgpu.sg_display=0"     # Disables Scatter/Gather (fixes flickering on some APUs)
         "iommu=pt"
-        #"idle=nomwait"
+        "idle=nomwait"
+        "processor.max_cstate=1"
     ];
 
     #plymouth = {
@@ -165,6 +167,8 @@
       keyboards.default.settings.main = {
         #for vim
         capslock = "esc";
+        #60% keyboard
+        esc = "grave";
       };
     };
 

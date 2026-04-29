@@ -31,7 +31,17 @@
     MANPAGER="bat -plman";
   };
 
-  xdg.enable = true; #enable xdg directory management
+  xdg = {
+    enable = true; #enable xdg directory management
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "application/x-bittorrent" = [ "qbittorrent.desktop" ];
+        "x-scheme-handler/magnet" = [ "qbittorrent.desktop" ];
+      };
+    };
+  };
+
   gtk = {
     enable = true;
     colorScheme = "dark";
@@ -68,7 +78,7 @@
     lazygit devenv texliveFull 
 
     # applications
-    kitty spotify zoom-us vlc qbittorrent mullvad-vpn tor-browser pavucontrol jellyfin-desktop obsidian
+    kitty spotify zoom-us vlc qbittorrent mullvad-vpn tor-browser pavucontrol jellyfin-desktop obsidian motrix
 
     #theming stuff
     bibata-cursors
@@ -150,12 +160,12 @@
     #dev tools
     git = {
       enable = true;
-      settings.user = {
-        name = "Jashith Raghavendra";
-        email = "jashith.r1@gmail.com";
-      };
-      extraConfig = {
+      settings = {
         init.defaultBranch = "main";
+        user = {
+          name = "Jashith Raghavendra";
+          email = "jashith.r1@gmail.com";
+        };
       };
     };
 
