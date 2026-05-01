@@ -184,6 +184,7 @@
       enable = true;
       user = "bloppai";
     };
+    jellyseerr.enable = true;
   };
 
   #programs
