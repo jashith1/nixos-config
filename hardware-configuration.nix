@@ -24,6 +24,13 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
+  fileSystems."/home/bloppai/windows" =
+    { device = "/dev/nvme0n1p3";
+      fsType = "ntfs-3g";
+      options = [ "rw" "uid=1000" ];
+    };
+
+
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
