@@ -59,6 +59,8 @@
       #  })
       #];
     #};
+
+    supportedFilesystems = [ "ntfs" ]; #for windows support
   };
 
   #system versionn, do not change
