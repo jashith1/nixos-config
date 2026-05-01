@@ -1,34 +1,24 @@
 { config, pkgs, inputs, ... }:
 
 {
-  home.username = "bloppai";
-  home.homeDirectory = "/home/bloppai";
+  home = {
+    username = "bloppai";
+    homeDirectory = "/home/bloppai";
 
-  # Import files from the current configuration directory into the Nix store,
-  # and create symbolic links pointing to those store files in the Home directory.
+    shell.enableZshIntegration = true;
 
-  # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1"; #wayland apps use ozone
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      MOZ_ENABLE_WAYLAND = 0;
+      MANPAGER="bat -plman";
+    };
 
-  # Import the scripts directory into the Nix store,
-  # and recursively generate symbolic links in the Home directory pointing to the files in the store.
-  # home.file.".config/i3/scripts" = {
-  #   source = ./scripts;
-  #   recursive = true;   # link recursively
-  #   executable = true;  # make all files executable
-  # };
-
-  # encode the file content in nix configuration file directly
-  # home.file.".xxx".text = ''
-  #     xxx
-  # '';
-
-  home.shell.enableZshIntegration = true;
-
-  home.sessionVariables = {
-    NIXOS_OZONE_WL = "1"; #wayland apps use ozone
-    ELECTRON_OZONE_PLATFORM_HINT = "auto";
-    MOZ_ENABLE_WAYLAND = 0;
-    MANPAGER="bat -plman";
+    file = {
+      ".zshrc".source = config.lib.file.mkOutOfStoreSymlink "/home/bloppai/.config/zsh/.zshrc"; #symlink .zshrc file to the actual one inside .config
+      "Videos/media".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/windows/media"; #symlink jellyfin media source to point to windows partition
+      ".face".source = ../wallpapers/Araragi.jpeg; #.face is read by a lot of apps for user photo
+    };
   };
 
   xdg = {
@@ -46,11 +36,6 @@
     enable = true;
     colorScheme = "dark";
   };
-
-  #symlink .zshrc file to the actual one inside .config
-  home.file.".zshrc".source = config.lib.file.mkOutOfStoreSymlink "/home/bloppai/.config/zsh/.zshrc";
-  home.file."Videos/media".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/windows/media";
-  home.file.".face".source = ../wallpapers/Araragi.jpeg;
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
