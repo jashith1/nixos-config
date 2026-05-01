@@ -49,6 +49,7 @@
 
   #symlink .zshrc file to the actual one inside .config
   home.file.".zshrc".source = config.lib.file.mkOutOfStoreSymlink "/home/bloppai/.config/zsh/.zshrc";
+  home.file."Videos/media".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/windows/media";
   home.file.".face".source = ../wallpapers/Araragi.jpeg;
 
   # Packages that should be installed to the user profile.
