@@ -16,7 +16,7 @@
 
     file = {
       ".zshrc".source = config.lib.file.mkOutOfStoreSymlink "/home/bloppai/.config/zsh/.zshrc"; #symlink .zshrc file to the actual one inside .config
-      "Videos/media".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/windows/media"; #symlink jellyfin media source to point to windows partition
+      "Media/windows_media".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/windows/media"; #symlink jellyfin media source to point to windows partition
       ".face".source = ../wallpapers/Araragi.jpeg; #.face is read by a lot of apps for user photo
     };
   };
