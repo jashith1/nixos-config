@@ -108,14 +108,24 @@
       settings = {
         general = {
           idle = {
-            timeouts = [];
+            timeouts = []; #don't have any timouts
+            lockBeforeSleep = false; #when laptop dies, attempts sleeping first dont lock when that happens
           };
+          showOverFullscreen = true; #i think this is supposed to show toasts over fullscreen but isnt working
         };
+
         bar = {
+          scrollActions = {
+            brightness = false;
+            volume = false;
+          };
+
           status = {
             showAudio = true;
           };
         };
+
+        sidebar.enabled = false; #isnt working :(
 
         services = {
           useFahrenheitPerformance = false;
