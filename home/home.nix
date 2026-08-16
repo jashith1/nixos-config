@@ -64,7 +64,7 @@
     lazygit devenv texliveFull 
 
     # applications
-    kitty spotify zoom-us vlc qbittorrent mullvad-vpn tor-browser pavucontrol jellyfin-desktop obsidian motrix
+    kitty spotify zoom-us vlc qbittorrent tor-browser pavucontrol jellyfin-desktop obsidian motrix
 
     #theming stuff
     bibata-cursors
@@ -96,6 +96,8 @@
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
+      withRuby = false;
+      withPython3 = true;
     };
 
     #looks
