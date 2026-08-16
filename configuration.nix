@@ -214,7 +214,10 @@
   };
 
   #virtualisation
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    package = pkgs.docker_29;
+  };
   
   #fonts
   fonts = {
