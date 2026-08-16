@@ -43,7 +43,7 @@
     nautilus nnn
 
     # archives
-    zip xz unzip unrar
+    zip xz unzip unrar gnutar
 
     # cli utilities
     ripgrep jq yq-go fzf tmux curl wget openssl fd tree-sitter
@@ -60,17 +60,21 @@
     # libraries
     glib
 
-    # dev
-    lazygit devenv texliveFull 
+    # dev tools
+    lazygit devenv
+
+    #languages
+    texliveFull nodejs python3
 
     # applications
-    kitty spotify zoom-us vlc qbittorrent tor-browser pavucontrol jellyfin-desktop obsidian motrix
+    kitty spotify zoom-us vlc qbittorrent tor-browser pavucontrol jellyfin-desktop obsidian
 
     #theming stuff
     bibata-cursors
   ];
 
   home.pointerCursor = {
+    enable = true;
     gtk.enable = true;
     x11.enable = true;
     hyprcursor.enable = true;
