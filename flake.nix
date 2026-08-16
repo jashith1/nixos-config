@@ -2,12 +2,12 @@
   description = "NixOS system using flakes";
 
   inputs = {
-    #nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11"; #stable
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    #nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11"; #stable
 
     home-manager = {
-      #url = "github:nix-community/home-manager/";
-      url = "github:nix-community/home-manager/release-25.11"; #stable
+      url = "github:nix-community/home-manager/";
+      #url = "github:nix-community/home-manager/release-25.11"; #stable
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
