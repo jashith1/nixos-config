@@ -17,6 +17,8 @@
 
     #enable grub as boootloader
     loader = {
+      timeout = 0;
+
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
