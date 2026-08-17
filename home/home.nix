@@ -43,7 +43,7 @@
     nautilus nnn
 
     # archives
-    zip xz unzip unrar gnutar
+    zip xz unzip unrar gnutar gnumake
 
     # cli utilities
     ripgrep jq yq-go fzf tmux curl wget openssl fd tree-sitter

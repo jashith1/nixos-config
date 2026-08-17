@@ -34,6 +34,8 @@
       modules = [
         ./configuration.nix
         ./hardware-configuration.nix
+        ./modules/silent-sddm.nix
+        #nixos-hardware.nixosModules.asus-zephyrus-ga402
 
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
@@ -46,10 +48,6 @@
             ];
           };
         }
-
-        #nixos-hardware.nixosModules.asus-zephyrus-ga402
-
-        ./modules/silent-sddm.nix
       ];
     };
   };
