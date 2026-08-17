@@ -203,7 +203,7 @@
       enable = true;
       user = "bloppai";
     };
-    jellyseerr.enable = true;
+    seerr.enable = true;
   };
 
   #programs
