@@ -125,10 +125,6 @@
             brightness = false;
             volume = false;
           };
-
-          status = {
-            showAudio = true;
-          };
         };
 
         sidebar.enabled = false; #isnt working :(
