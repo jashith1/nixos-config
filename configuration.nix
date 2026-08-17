@@ -208,7 +208,10 @@
 
   #programs
   programs = {
-    hyprland.enable = true;
+    hyprland = {
+      enable = true;
+      withUWSM = false;
+    };
     zsh.enable = true;
     bash.enable = true;
     #dynamic library management 

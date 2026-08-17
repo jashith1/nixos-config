@@ -10,8 +10,9 @@
     sessionVariables = {
       NIXOS_OZONE_WL = "1"; #wayland apps use ozone
       ELECTRON_OZONE_PLATFORM_HINT = "auto";
-      MOZ_ENABLE_WAYLAND = 0;
-      MANPAGER="bat -plman";
+      MOZ_ENABLE_WAYLAND = 1;
+      MANPAGER = "bat -plman";
+      XDG_SCREENSHOTS_DIR = "$HOME/Pictures/Screenshots/";
     };
 
     file = {
@@ -100,8 +101,6 @@
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
-      withRuby = false;
-      withPython3 = true;
     };
 
     #looks
