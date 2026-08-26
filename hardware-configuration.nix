@@ -14,24 +14,19 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/c4d50e43-897b-4af6-b468-e1125d1b4355";
+    { device = "/dev/disk/by-uuid/24dee86e-e550-4a30-a633-1887132aa9ba";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/9855-1002";
+    { device = "/dev/disk/by-uuid/6848-BAC1";
       fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
+      options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  fileSystems."/home/bloppai/windows" =
-    { device = "/dev/nvme0n1p3";
-      fsType = "ntfs-3g";
-      options = [ "rw" "uid=1000" ];
-    };
-
-
-  swapDevices = [ ];
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/4b207b2f-6380-4127-9272-38672e19cc98"; }
+    ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
