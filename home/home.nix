@@ -115,7 +115,7 @@
         };
 
         notifs = {
-          fullscreen = "on";
+          fullscreen = "On";
         };
 
         utilities = {
