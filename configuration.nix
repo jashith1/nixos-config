@@ -91,7 +91,10 @@
   };
   networking.networkmanager.wifi.backend = "iwd";
  
-  time.timeZone = "America/Chicago";
+  time = {
+    hardwareClockInLocalTime = true; #usually dualbooting
+    timeZone = "America/Chicago";
+  };
 
   #language and locale settings
   i18n = {
