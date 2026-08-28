@@ -17,7 +17,7 @@
 
     #enable grub as boootloader
     loader = {
-      timeout = 0;
+      timeout = 2;
 
       efi = {
         canTouchEfiVariables = true;
@@ -231,6 +231,7 @@
     packages = with pkgs; [
       nerd-fonts.jetbrains-mono
       nerd-fonts.symbols-only
+      meslo-lgs-nf
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
