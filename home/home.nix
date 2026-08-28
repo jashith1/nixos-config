@@ -24,13 +24,6 @@
 
   xdg = {
     enable = true; #enable xdg directory management
-    mimeApps = {
-      enable = true;
-      defaultApplications = {
-        "application/x-bittorrent" = [ "qbittorrent.desktop" ];
-        "x-scheme-handler/magnet" = [ "qbittorrent.desktop" ];
-      };
-    };
   };
 
   gtk = {
@@ -47,7 +40,7 @@
     zip xz unzip unrar gnutar gnumake
 
     # cli utilities
-    ripgrep jq yq-go fzf tmux curl wget openssl fd tree-sitter
+    ripgrep jq yq-go fzf tmux curl wget openssl fd tree-sitter gcc gnumake
 
     # system tools
     btop lm_sensors fastfetch brightnessctl efibootmgr ntfs3g railway
@@ -101,6 +94,7 @@
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
+      sideloadInitLua = true; #tells hm that I have my own nvim config
     };
 
     #looks
@@ -116,7 +110,18 @@
             timeouts = []; #don't have any timouts
             lockBeforeSleep = false; #when laptop dies, attempts sleeping first dont lock when that happens
           };
+
           showOverFullscreen = true; #i think this is supposed to show toasts over fullscreen but isnt working
+        };
+
+        notifs = {
+          fullscreen = "on";
+        };
+
+        utilities = {
+          toasts = {
+            fullscreen = "all";
+          };
         };
 
         bar = {
