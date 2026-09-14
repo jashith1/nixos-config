@@ -13,6 +13,7 @@
       MOZ_ENABLE_WAYLAND = 1;
       MANPAGER = "bat -plman";
       XDG_SCREENSHOTS_DIR = "$HOME/Pictures/Screenshots/";
+      SSL_CERT_FILE = "/etc/ssl/certs/ca-certificates.crt";
     };
 
     file = {
