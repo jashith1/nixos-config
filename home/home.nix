@@ -40,7 +40,7 @@
     zip xz unzip unrar gnutar gnumake
 
     # cli utilities
-    ripgrep jq yq-go fzf tmux curl wget openssl fd tree-sitter gcc gnumake gdb
+    ripgrep jq yq-go fzf tmux curl wget openssl fd tree-sitter gcc gnumake gdb speedtest-cli ani-cli
 
     # system tools
     btop lm_sensors fastfetch brightnessctl efibootmgr ntfs3g railway
@@ -58,7 +58,7 @@
     lazygit devenv
 
     #languages
-    texliveFull nodejs python3
+    texliveFull nodejs python3 rustup
 
     # applications
     kitty spotify zoom-us vlc qbittorrent tor-browser pavucontrol jellyfin-desktop obsidian
@@ -183,7 +183,7 @@
     #starship.enable = true;
 
     #While I do use devenv+direnv sometimes, it gets very messy when there are multiple venvs active
-    #uv.enable = true;
+    uv.enable = true;
   };
 
   home.stateVersion = "25.11"; #dont change
