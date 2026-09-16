@@ -41,7 +41,7 @@
     zip xz unzip unrar gnutar gnumake
 
     # cli utilities
-    ripgrep jq yq-go fzf tmux curl wget openssl fd tree-sitter gcc gnumake gdb speedtest-cli ani-cli
+    ripgrep jq yq-go fzf tmux curl wget openssl fd tree-sitter gcc gnumake gdb speedtest-cli ani-cli codex
 
     # system tools
     btop lm_sensors fastfetch brightnessctl efibootmgr ntfs3g railway

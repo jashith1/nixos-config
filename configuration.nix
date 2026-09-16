@@ -206,6 +206,7 @@
       enable = true;
       user = "bloppai";
     };
+
     seerr.enable = true;
   };
 
