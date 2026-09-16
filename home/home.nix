@@ -41,7 +41,7 @@
     zip xz unzip unrar gnutar gnumake
 
     # cli utilities
-    ripgrep jq yq-go fzf tmux curl wget openssl fd tree-sitter gcc gnumake gdb speedtest-cli ani-cli codex
+    ripgrep jq yq-go fzf tmux curl wget openssl fd tree-sitter gcc gnumake gdb speedtest-cli ani-cli
 
     # system tools
     btop lm_sensors fastfetch brightnessctl efibootmgr ntfs3g railway
@@ -185,6 +185,8 @@
 
     #While I do use devenv+direnv sometimes, it gets very messy when there are multiple venvs active
     uv.enable = true;
+
+    codex.enable = true;
   };
 
   home.stateVersion = "25.11"; #dont change
