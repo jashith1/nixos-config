@@ -47,7 +47,7 @@
     # NOTE: There's duplicate installations from mason as fallback if using non nix distro
     clang-tools rust-analyzer
     #formatters
-    rustfmt
+    rustfmt ruff
     #package managers
     cargo
 
