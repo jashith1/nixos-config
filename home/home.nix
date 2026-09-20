@@ -43,6 +43,14 @@
     # cli utilities
     ripgrep jq yq-go fzf tmux curl wget openssl fd tree-sitter gcc gnumake gdb speedtest-cli ani-cli
 
+    # lsp
+    # NOTE: There's duplicate installations from mason as fallback if using non nix distro
+    clang-tools rust-analyzer
+    #formatters
+    rustfmt
+    #package managers
+    cargo
+
     # system tools
     btop lm_sensors fastfetch brightnessctl efibootmgr ntfs3g railway
 
@@ -59,7 +67,7 @@
     lazygit devenv
 
     #languages
-    texliveFull nodejs python3 rustup postgresql
+    texliveFull nodejs python3 postgresql rustc
 
     # applications
     kitty spotify zoom-us vlc qbittorrent tor-browser pavucontrol jellyfin-desktop obsidian
