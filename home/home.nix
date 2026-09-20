@@ -59,7 +59,7 @@
     lazygit devenv
 
     #languages
-    texliveFull nodejs python3 rustup
+    texliveFull nodejs python3 rustup postgresql
 
     # applications
     kitty spotify zoom-us vlc qbittorrent tor-browser pavucontrol jellyfin-desktop obsidian
