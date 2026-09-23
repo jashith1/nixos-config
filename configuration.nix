@@ -38,18 +38,23 @@
     consoleLogLevel = 3;
     initrd.verbose = false;
     kernelParams = [
-        #quiet the boot screen
-        #"quiet"
-        #"udev.log_priority=3"
-        #"systemd.show_status=auto"
+      # Keep boot messages behind the splash unless boot stalls.
+      "quiet"
+      "udev.log_level=3"
+      "rd.udev.log_level=3"
+      "systemd.show_status=auto"
+      "rd.systemd.show_status=auto"
 
-        #gpu fix testing
-        "amdgpu.dcdebugmask=0x10" # Disables PSR (Panel Self Refresh)
-        "amd_pstate=active"
-        #"amdgpu.sg_display=0"     # Disables Scatter/Gather (fixes flickering on some APUs)
-        "iommu=pt"
-        "idle=nomwait"
-        "processor.max_cstate=1"
+      # Show Plymouth on the firmware framebuffer while amdgpu initializes.
+      "plymouth.use-simpledrm"
+
+      #gpu fix testing
+      #"amdgpu.dcdebugmask=0x10" # Disables PSR (Panel Self Refresh)
+      #"amd_pstate=active"
+      #"amdgpu.sg_display=0"     # Disables Scatter/Gather (fixes flickering on some APUs)
+      #"iommu=pt"
+      #"idle=nomwait"
+      #"processor.max_cstate=1"
     ];
 
     plymouth = {
@@ -248,4 +253,3 @@
     ];
   };
 }
-
