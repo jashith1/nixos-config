@@ -39,9 +39,9 @@
     initrd.verbose = false;
     kernelParams = [
         #quiet the boot screen
-        #"quiet"
-        #"udev.log_priority=3"
-        #"systemd.show_status=auto"
+        "quiet"
+        "udev.log_priority=3"
+        "systemd.show_status=auto"
 
         #gpu fix testing
         "amdgpu.dcdebugmask=0x10" # Disables PSR (Panel Self Refresh)
