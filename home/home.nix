@@ -41,7 +41,7 @@
     zip xz unzip unrar gnutar gnumake
 
     # cli utilities
-    ripgrep jq yq-go fzf tmux curl wget openssl fd tree-sitter gcc gnumake gdb speedtest-cli ani-cli trash-cli
+    ripgrep jq yq-go fzf tmux curl wget openssl fd tree-sitter gcc gnumake gdb speedtest-cli ani-cli trash-cli busybox
 
     # lsp
     # NOTE: There's duplicate installations from mason as fallback if using non nix distro
@@ -49,7 +49,7 @@
     #formatters
     rustfmt ruff
     #package managers
-    cargo
+    cargo yarn
 
     # system tools
     btop lm_sensors fastfetch brightnessctl efibootmgr ntfs3g railway
@@ -195,6 +195,8 @@
     uv.enable = true;
 
     codex.enable = true;
+
+    java.enable = true;
   };
 
   home.stateVersion = "25.11"; #dont change
