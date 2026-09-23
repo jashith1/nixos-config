@@ -41,7 +41,7 @@
     zip xz unzip unrar gnutar gnumake
 
     # cli utilities
-    ripgrep jq yq-go fzf tmux curl wget openssl fd tree-sitter gcc gnumake gdb speedtest-cli ani-cli trash-cli busybox
+    ripgrep jq yq-go fzf tmux curl wget openssl fd tree-sitter gcc gnumake gdb speedtest-cli ani-cli trash-cli
 
     # lsp
     # NOTE: There's duplicate installations from mason as fallback if using non nix distro
