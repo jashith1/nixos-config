@@ -25,6 +25,7 @@
       url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs = { self, nixpkgs, nixos-hardware, home-manager, silentSDDM, caelestia-shell, ... }@inputs: {
@@ -35,6 +36,7 @@
         ./configuration.nix
         ./hardware-configuration.nix
         ./modules/silent-sddm.nix
+        catppuccin.nixosModules.catppuccin
         #nixos-hardware.nixosModules.asus-zephyrus-ga402
 
         home-manager.nixosModules.home-manager {
@@ -45,6 +47,7 @@
             imports = [
               ./home/home.nix
               inputs.caelestia-shell.homeManagerModules.default
+              catppuccin.homeModules.catppuccin
             ];
           };
         }
