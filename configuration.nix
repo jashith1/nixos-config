@@ -48,7 +48,8 @@
         "amd_pstate=active"
         #"amdgpu.sg_display=0"     # Disables Scatter/Gather (fixes flickering on some APUs)
         "iommu=pt"
-        "idle=nomwait"
+        #"idle=nomwait"
+        "idle=poll"
         "processor.max_cstate=1"
     ];
 
