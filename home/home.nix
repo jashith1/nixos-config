@@ -41,7 +41,7 @@
     zip xz unzip unrar gnutar gnumake
 
     # cli utilities
-    ripgrep jq yq-go fzf tmux curl wget openssl fd tree-sitter gcc gnumake gdb speedtest-cli ani-cli trash-cli
+    ripgrep jq yq-go fzf tmux curl wget openssl fd tree-sitter gcc gnumake gdb speedtest-cli ani-cli trash-cli yazi
 
     # lsp
     # NOTE: There's duplicate installations from mason as fallback if using non nix distro
@@ -70,7 +70,7 @@
     texliveFull nodejs python3 postgresql rustc
 
     # applications
-    kitty spotify zoom-us vlc qbittorrent tor-browser pavucontrol jellyfin-desktop obsidian
+    kitty spotify zoom-us vlc qbittorrent tor-browser pavucontrol jellyfin-desktop obsidian swayimg
 
     #theming stuff
     bibata-cursors
