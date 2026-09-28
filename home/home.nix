@@ -30,6 +30,11 @@
   gtk = {
     enable = true;
     colorScheme = "dark";
+
+    iconTheme = {
+      name = "Colloid-Dark";
+      package = pkgs.colloid-icon-theme;
+    };
   };
 
   # Packages that should be installed to the user profile.
