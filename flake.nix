@@ -28,7 +28,7 @@
     catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, silentSDDM, caelestia-shell, ... }@inputs: {
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, silentSDDM, caelestia-shell, catppuccin, ... }@inputs: {
     nixosConfigurations.bloppai = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
