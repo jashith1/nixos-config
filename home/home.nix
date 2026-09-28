@@ -32,8 +32,11 @@
     colorScheme = "dark";
 
     iconTheme = {
-      name = "Colloid-Dark";
-      package = pkgs.colloid-icon-theme;
+      name = "Colloid-Purple-Catppuccin-Dark";
+      package = pkgs.colloid-icon-theme.override {
+        schemeVariants = [ "catppuccin" ];
+        colorVariants = [ "purple" ];
+      };
     };
   };
 
@@ -92,6 +95,13 @@
 
     size = 24;
     hyprcursor.size = 24;
+  };
+
+  catppuccin = {
+    enable = true;
+    autoEnable = false;
+    flavor = "mocha";
+    accent = "mauve";
   };
 
   programs = {
