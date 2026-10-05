@@ -150,6 +150,8 @@
 
   #services
   services = {
+    gvfs.enable = true; # Nautilus trash and virtual filesystem support
+
     mullvad-vpn = {
       enable = true;
       gui.enable = true;

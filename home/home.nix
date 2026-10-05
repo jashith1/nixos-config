@@ -25,11 +25,29 @@
 
   xdg = {
     enable = true; #enable xdg directory management
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+      documents = "${config.home.homeDirectory}/Documents";
+      download = "${config.home.homeDirectory}/Downloads";
+      music = "${config.home.homeDirectory}/Music";
+      pictures = "${config.home.homeDirectory}/Pictures";
+      videos = "${config.home.homeDirectory}/Videos";
+    };
   };
 
   gtk = {
     enable = true;
     colorScheme = "dark";
+
+    # Standard sidebar shortcuts for Nautilus and GTK file choosers.
+    gtk3.bookmarks = map (directory: "file://${directory}") [
+      config.xdg.userDirs.download
+      config.xdg.userDirs.documents
+      config.xdg.userDirs.pictures
+      config.xdg.userDirs.music
+      config.xdg.userDirs.videos
+    ];
 
     iconTheme = {
       name = "Colloid-Purple-Catppuccin-Dark";
