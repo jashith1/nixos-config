@@ -38,30 +38,30 @@
     consoleLogLevel = 3;
     initrd.verbose = false;
     kernelParams = [
-        #quiet the boot screen
-        "quiet"
-        "udev.log_priority=3"
-        "systemd.show_status=auto"
+      #quiet the boot screen
+      #"quiet"
+      #"udev.log_priority=3"
+      #"systemd.show_status=auto"
 
-        #gpu fix testing
-        "amdgpu.dcdebugmask=0x10" # Disables PSR (Panel Self Refresh)
-        "amd_pstate=active"
-        #"amdgpu.sg_display=0"     # Disables Scatter/Gather (fixes flickering on some APUs)
-        "iommu=pt"
-        #"idle=nomwait"
-        "idle=poll"
-        "processor.max_cstate=1"
+      #gpu fix testing
+      "amdgpu.dcdebugmask=0x10" # Disables PSR (Panel Self Refresh)
+      "amd_pstate=active"
+      #"amdgpu.sg_display=0"     # Disables Scatter/Gather (fixes flickering on some APUs)
+      "iommu=pt"
+      "idle=nomwait"
+      #"idle=poll"
+      "processor.max_cstate=1"
     ];
 
-    plymouth = {
-     enable = true;
-     theme = "deus_ex";
-     themePackages = with pkgs; [
-       (adi1090x-plymouth-themes.override {
-         selected_themes = [ "deus_ex" "lone" "rings" ];
-       })
-     ];
-    };
+    #plymouth = {
+    # enable = true;
+    # theme = "deus_ex";
+    # themePackages = with pkgs; [
+    #   (adi1090x-plymouth-themes.override {
+    #     selected_themes = [ "deus_ex" "lone" "rings" ];
+    #   })
+    # ];
+    #};
 
     supportedFilesystems = [ "ntfs" ]; #for windows support
   };
