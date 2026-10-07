@@ -25,6 +25,10 @@
 
   xdg = {
     enable = true; #enable xdg directory management
+    mimeApps = {
+      enable = true;
+      defaultApplications."application/zip" = [ "org.gnome.Nautilus.desktop" ];
+    };
     userDirs = {
       enable = true;
       createDirectories = true;
@@ -41,12 +45,13 @@
     colorScheme = "dark";
 
     # Standard sidebar shortcuts for Nautilus and GTK file choosers.
-    gtk3.bookmarks = map (directory: "file://${directory}") [
-      config.xdg.userDirs.download
-      config.xdg.userDirs.documents
-      config.xdg.userDirs.pictures
-      config.xdg.userDirs.music
-      config.xdg.userDirs.videos
+    gtk3.bookmarks = [
+      "file://${config.xdg.userDirs.download}"
+      "file://${config.home.homeDirectory}/programming Programming"
+      "file://${config.xdg.userDirs.documents}"
+      "file://${config.xdg.userDirs.pictures}"
+      "file://${config.xdg.userDirs.music}"
+      "file://${config.xdg.userDirs.videos}"
     ];
 
     iconTheme = {
@@ -75,7 +80,7 @@
     #formatters
     rustfmt ruff
     #package managers
-    cargo yarn
+    cargo yarn gradle
 
     # system tools
     btop lm_sensors fastfetch brightnessctl efibootmgr ntfs3g railway
