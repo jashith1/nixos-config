@@ -168,8 +168,8 @@
     };
     upower.enable = true;
 
-    supergfxd.enable = true;
     asusd.enable = true;
+    cardwired.enable = true;
 
     fstrim.enable = true;
 
