@@ -8,7 +8,7 @@
     profileIcons = {bloppai = ../wallpapers/Araragi.jpeg;};
     settings = {
       "General" = {
-        scale = 2.0;
+        scale = 1.0;
       };
       "LockScreen" = {
         background = "steins_gate.mp4"; #when first boot (before typing in pw)
