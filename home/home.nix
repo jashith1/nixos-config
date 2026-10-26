@@ -218,6 +218,11 @@
       };
     };
 
+    gh = {
+      enable = true;
+      gitCredentialHelper = true;
+    }
+
     direnv = {
       enable = true;
       nix-direnv.enable = true;
