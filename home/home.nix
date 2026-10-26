@@ -221,7 +221,7 @@
     gh = {
       enable = true;
       gitCredentialHelper = true;
-    }
+    };
 
     direnv = {
       enable = true;
