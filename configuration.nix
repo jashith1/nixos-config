@@ -48,9 +48,9 @@
       "amd_pstate=active"
       #"amdgpu.sg_display=0"     # Disables Scatter/Gather (fixes flickering on some APUs)
       "iommu=pt"
-      "idle=nomwait"
-      #"idle=poll"
-      "processor.max_cstate=1"
+
+      #removed idle tweaks: crashes are a marginal core 0, see modules/core0-stability.nix
+      #idle=poll (tested sep 28 - oct 4) and idle=nomwait/processor.max_cstate=1 didn't stop them and cost battery
     ];
 
     #plymouth = {

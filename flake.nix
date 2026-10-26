@@ -36,6 +36,7 @@
         ./configuration.nix
         ./hardware-configuration.nix
         ./modules/silent-sddm.nix
+        ./modules/core0-stability.nix
         catppuccin.nixosModules.catppuccin
         #nixos-hardware.nixosModules.asus-zephyrus-ga402
 
