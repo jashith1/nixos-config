@@ -36,7 +36,6 @@
 
     #enable splash screen
     consoleLogLevel = 3;
-    initrd.verbose = false;
     kernelParams = [
       #quiet the boot screen
       #"quiet"
