@@ -44,6 +44,17 @@ in
     script = limitCstates;
   };
 
+  #s2idle only reaches the deepest SoC state if every core can enter C3,
+  #so lift the limit while suspending and put it back on resume
+  powerManagement.powerDownCommands = ''
+    for c in ${cores}; do
+      for s in /sys/devices/system/cpu/cpu$c/cpuidle/state*; do
+        echo 0 > $s/disable || true
+      done
+    done
+  '';
+  powerManagement.resumeCommands = limitCstates;
+
   #stage 2: restore default floor 10 minutes after boot
   systemd.services.core0-minfreq-reset = {
     serviceConfig.Type = "oneshot";

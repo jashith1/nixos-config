@@ -146,6 +146,11 @@
     #tree-sitter luarocks ripgrep fd prettier stylua black shfmt python3Packages.pip lua-language-server pyright typescript-language-server yaml-language-server clang-tools ruff stylua zathura xdotool haskellPackages.fourmolu nil haskell-language-server texlab
   ];
 
+  #suspend sometimes doesn't reach deep sleep and the clock keeps running for minutes,
+  #so systemd's 3min watchdog kills logind/journald on resume -> session lost, sddm loop, wifi never woken
+  systemd.services.systemd-logind.serviceConfig.WatchdogSec = 0;
+  systemd.services.systemd-journald.serviceConfig.WatchdogSec = 0;
+
   #services
   services = {
     gvfs.enable = true; # Nautilus trash and virtual filesystem support
