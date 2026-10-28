@@ -3,8 +3,9 @@
 # Workaround for a marginal CPU core 0 (cpu0 + cpu1 SMT siblings) on the 6900HS.
 # Pstore crash dumps (/var/lib/systemd/pstore) show nearly all oopses on cpu0/cpu1,
 # mostly 6-8s into boot while amdgpu powers up the GPUs.
-# Idea: keep core 0 at nominal clock (= higher voltage) during boot, then return
-# to normal after 10 minutes so battery life isn't affected for the rest of the session.
+# Idea: keep core 0 at nominal clock (= higher voltage), permanently.
+# It used to drop back to normal after 10 minutes, but on 2026-10-28 every crash
+# (5 that day) came 0-6 minutes after that drop and none before it.
 #
 # Core 0 is also kept out of the deep C2/C3 idle states (C1 only), permanently.
 # Dropping processor.max_cstate=1 globally let core 0 into C2/C3 and in-session crashes
@@ -54,19 +55,4 @@ in
     done
   '';
   powerManagement.resumeCommands = limitCstates;
-
-  #stage 2: restore default floor 10 minutes after boot
-  systemd.services.core0-minfreq-reset = {
-    serviceConfig.Type = "oneshot";
-    script = ''
-      for c in ${cores}; do
-        d=/sys/devices/system/cpu/cpu$c/cpufreq
-        cat $d/amd_pstate_lowest_nonlinear_freq > $d/scaling_min_freq
-      done
-    '';
-  };
-  systemd.timers.core0-minfreq-reset = {
-    wantedBy = [ "timers.target" ];
-    timerConfig.OnBootSec = "10min";
-  };
 }
