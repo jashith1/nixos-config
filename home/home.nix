@@ -98,7 +98,7 @@
     lazygit devenv
 
     #languages
-    texliveFull nodejs python3 postgresql rustc
+    texliveFull nodejs python3 postgresql rustc go
 
     # applications
     kitty spotify zoom-us vlc qbittorrent tor-browser pavucontrol jellyfin-desktop obsidian swayimg
