@@ -11,7 +11,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #nixos-hardware.url = "github:NixOS/nixos-hardware/master"; #my laptop's default settings, disabling because it's power policy is too aggressive
+    #my laptop's default settings, disabling because it's power policy is too aggressive
+    #nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     terminaltexteffects = {
       url = "github:ChrisBuilds/terminaltexteffects";
@@ -28,32 +29,17 @@
     catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, silentSDDM, caelestia-shell, catppuccin, ... }@inputs: {
-    nixosConfigurations.bloppai = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./configuration.nix
-        ./hardware-configuration.nix
-        ./modules/silent-sddm.nix
-        ./modules/core0-stability.nix
-        catppuccin.nixosModules.catppuccin
-        #nixos-hardware.nixosModules.asus-zephyrus-ga402
-
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit inputs; };
-          home-manager.users.bloppai = { ... }: {
-            imports = [
-              ./home/home.nix
-              inputs.caelestia-shell.homeManagerModules.default
-              catppuccin.homeModules.catppuccin
-            ];
-          };
-        }
-      ];
+  outputs = { nixpkgs, ... }@inputs:
+    let
+      mkHost = { system ? "x86_64-linux", modules }:
+        nixpkgs.lib.nixosSystem {
+          inherit system modules;
+          specialArgs = { inherit inputs; };
+        };
+    in
+    {
+      nixosConfigurations.g14 = mkHost {
+        modules = [ ./hosts/g14 ];
+      };
     };
-  };
 }
-

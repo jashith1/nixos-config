@@ -1,11 +1,14 @@
-{ config, pkgs, ... }:
+# Login screen (SilentSDDM).
+{ inputs, ... }:
 
 {
+  imports = [ inputs.silentSDDM.nixosModules.default ];
+
   programs.silentSDDM = {
     enable = true;
     theme = "silvia";
-    backgrounds = {steins_gate = ../wallpapers/steins_gate.mp4;};
-    profileIcons = {bloppai = ../wallpapers/Araragi.jpeg;};
+    backgrounds = {steins_gate = ../../wallpapers/steins_gate.mp4;};
+    profileIcons = {bloppai = ../../wallpapers/Araragi.jpeg;};
     settings = {
       "General" = {
         scale = 1.0;
