@@ -5,6 +5,7 @@
   imports = [
     ./session.nix
     ./xdg.nix
+    ./defaults.nix
     ./theme.nix
     ./packages.nix
     ./shell.nix

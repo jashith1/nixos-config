@@ -3,10 +3,6 @@
 {
   xdg = {
     enable = true; #enable xdg directory management
-    mimeApps = {
-      enable = true;
-      defaultApplications."application/zip" = [ "org.gnome.Nautilus.desktop" ];
-    };
     userDirs = {
       enable = true;
       createDirectories = true;
