@@ -53,6 +53,9 @@
 
       cli = {
         enable = true; # Also add caelestia-cli to path
+
+        #force custom gtk scheme instead of dynamic
+        settings.theme.iconTheme = config.gtk.iconTheme.name;
       };
     };
   };
