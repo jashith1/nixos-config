@@ -27,7 +27,7 @@
     iperf3 dnsutils nmap
 
     # desktop / wayland tools
-    rofi hyprpaper swaynotificationcenter grimblast slurp wl-clipboard xwayland playerctl quickshell
+    rofi hyprpaper swaynotificationcenter libnotify grimblast slurp wl-clipboard xwayland playerctl quickshell terminaltexteffects hypridle
 
     # libraries
     glib
